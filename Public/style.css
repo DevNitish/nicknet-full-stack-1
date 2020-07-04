@@ -1,0 +1,108 @@
+img.d-block{
+    width:100%;
+    max-height: 400px;
+    
+} 
+#signuplink{
+    color:white
+}
+#logoname{
+    color: #002856;
+}
+a.nav-item{
+    font-family: "Graphik Web";
+ 
+    
+}
+#buttonsonly a{
+    background-color: #ff540a;
+    color: white;
+}
+#buttonsonly a:hover{
+
+    background-color:#e64500    ;
+}
+
+#achievementtext{
+    color: #002856;
+    font-weight: bold;
+    font-size: 35px;
+}
+#poweredby{
+    color: #002856;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+
+.company li{
+    list-style-type: none;
+    float: left;
+}
+img.poweredpics{
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 50%;
+    
+}
+
+footer a{
+    font-weight: bold;
+    font-size: 19px;
+    color: #002856;
+}
+
+.jumbotron {
+    background-image: url("https://leverageedu.com/blog/wp-content/uploads/2019/11/Career-after-BSc-Maths.png");
+    background-size: cover;
+  }
+
+#jumboheading{
+    font-size: 44px;
+    font-weight: 700;
+    font-family: "Graphik Web";
+}
+.card-img-top {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.newcourses h5{
+    font-size: 15px;
+}
+.newcourses p{
+    font-size: 15px;
+}
+
+
+.btn{
+    background-color: #ff540a;
+    color: white;
+}
+.btn:hover{
+    background-color:#e64500    ; 
+}
+
+.teacherinfo{
+    border: 1px solid #e64500 ;
+}
+.media h5{
+    color: #002856 ;
+    font-weight: bolder;
+}
+.borderfortab{
+    border: 1px solid #e64500 ;
+}
+
+
+@media only screen and (max-width: 768px){
+    #carouselheading{
+       font-size: 8px;
+     }
+   .newcourses{
+       width:17rem ;
+       margin-left:30px ;
+   } 
+
+}
