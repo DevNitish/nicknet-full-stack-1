@@ -67,11 +67,42 @@ footer a{
     height: 180px;
     object-fit: cover;
 }
-.card{
-    max-height: 350px;
+
+.newcourses h5{
+    font-size: 15px;
 }
-@media only screen and (max-width: 764px){
+.newcourses p{
+    font-size: 15px;
+}
+
+
+.btn{
+    background-color: #ff540a;
+    color: white;
+}
+.btn:hover{
+    background-color:#e64500    ; 
+}
+
+.teacherinfo{
+    border: 1px solid #e64500 ;
+}
+.media h5{
+    color: #002856 ;
+    font-weight: bolder;
+}
+.borderfortab{
+    border: 1px solid #e64500 ;
+}
+
+
+@media only screen and (max-width: 768px){
     #carouselheading{
        font-size: 8px;
      }
-    }
+   .newcourses{
+       width:17rem ;
+       margin-left:30px ;
+   } 
+
+}
