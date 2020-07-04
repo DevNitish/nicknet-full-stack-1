@@ -1,5 +1,6 @@
 const express =require("express");
 const mongoose=require("mongoose");
+const path=require("path");
 const config= require("./dev.json");
 const mainRoute=require("./server/routes/index")
 const app=express();
@@ -24,6 +25,7 @@ app.use(function(req, res, next) {
 });
 
 app.use("/",mainRoute)
+app.use(express.static(path.join(__dirname, 'public')))
 app.listen(port,function(){
     console.log("App is running on port ",port);
 })
