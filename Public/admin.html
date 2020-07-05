@@ -57,7 +57,7 @@
                       <img src="https://blog.insaid.co/wp-content/uploads/2019/04/Python-logo.jpg" class="card-img-top" alt="...">
                       <div class="card-body">
                         <h5 class="card-title">Complete Python Developer Course</h5>
-                        <a role="button" class="btn btn-block " type="submit"  style="color: white;">Edit</a> 
+                        <a role="button" class="btn btn-block " type="submit" data-toggle="modal" data-target="#modal" style="color: white;">Edit</a> 
                       </div>
                     </div>
                     <div class="card">
@@ -119,31 +119,25 @@
             <!--editcoursestab END-->
             <!--teachers tab-->
             <div class="tab-pane fade" id="nav-teachers" role="tabpanel" aria-labelledby="nav-teachers-tab">
-                <div class="container ">
-                    <div class="media my-3 teacherinfo" >
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png" class="mr-3" alt="...">
-                        <div class="media-body">
-                          <h5 class="mt-0">Fred Williams</h5>
-                          <ul class="list-group my-2 mx-2">
-                            <li class="list-group-item ">Username:<span class="list-group-item-light"> fred_william24</span></li>
-                            <li class="list-group-item ">Email:<span class="list-group-item-light"> fred_william24@gmail.com</span</li>
-                            <li class="list-group-item ">Salary:<span class="list-group-item-light"> 9000</span</li>
+                <div class="container borderfortab">
+                  <div class="card my-2">
+                    <h5 class="card-header">Fred Williams</h5>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-lg-4 col-md-4">
+                          <img class="tabcardimg" src="https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg">
+                        </div>
+                        <div class="col-lg-8 col-md-8">
+                          <ul class="list-group ">
+                            <li class="list-group-item">Username:fredwiil12</li>
+                            <li class="list-group-item">Email Address: fredwiil121@gmail.com</li>
+                            <li class="list-group-item">Salary: 9900</li>
                           </ul>
-                          <a role="button" class="btn mx-2 my-1" type="submit"  style="color: white; ">Edit info</a> 
                         </div>
                       </div>
-                      <div class="media my-3 teacherinfo" >
-                        <img src="https://static.thenounproject.com/png/17241-200.png" class="mr-3" alt="...">
-                        <div class="media-body">
-                          <h5 class="mt-0">Chester Vargas</h5>
-                          <ul class=" my-2 mx-2">
-                            <li class="list-group-item ">Username:<span class="list-group-item-light"> chester12</span></li>
-                            <li class="list-group-item ">Email:<span class="list-group-item-light"> chesterplays11@gmail.com</span</li>
-                            <li class="list-group-item ">Salary:<span class="list-group-item-light"> 5000</span</li>
-                          </ul>
-                          <a role="button" class="btn mx-2 my-1" type="submit"  style="color: white; ">Edit info</a> 
-                        </div>
-                      </div>
+                      <a href="#" class="btn btn-sm btn-block " data-toggle="modal" data-target="#modal1">Edit info</a>
+                    </div>
+                  </div>
 
                     </div>
                 </div>
@@ -225,6 +219,81 @@
                 </div>
             </div>
         </div>
+        <!--Modals-->
+        <div class="modal" tabindex="-1"  id='modal' role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Edit Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="course-name" class="col-form-label">Course Name:</label>
+                    <input type="text" class="form-control" id="course-name">
+                  </div>
+                  <div class="form-group">
+                    <label for="course-price" class="col-form-label">Course Price:</label>
+                    <input type="number" class="form-control" id="course-price">
+                  </div>
+                  <div class="form-group">
+                    <label for="course-duration" class="col-form-label">Course Duration(in hours):</label>
+                    <input type="text" class="form-control" id="course-duration">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Description:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn " data-dismiss="modal">Close</button>
+                <button type="button" class="btn ">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--2nd modal-->
+        <div class="modal" tabindex="-1"  id='modal1' role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Edit Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="teacher-name" class="col-form-label">Username:</label>
+                    <input type="text" class="form-control" id="teacher-name">
+                  </div>
+                  <div class="form-group">
+                    <label for="teacher-mail" class="col-form-label">Email Address:</label>
+                    <input type="text" class="form-control" id="teacher-mail">
+                  </div>
+                  <div class="form-group">
+                    <label for="teacher-pass" class="col-form-label">Password:</label>
+                    <input type="text" class="form-control" id="teacher-pass">
+                  </div>
+                  <div class="form-group">
+                    <label for="teacher-salary" class="col-form-label">Salary:</label>
+                    <input type="number" class="form-control" id="teacher-salary" disabled>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn " data-dismiss="modal">Close</button>
+                <button type="button" class="btn ">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Modals END-->
           </div>
           <footer>
             <nav class="navbar bg-light">

@@ -3,6 +3,7 @@ const mongoose=require("mongoose");
 const path=require("path");
 const config= require("./dev.json");
 const mainRoute=require("./server/routes/index")
+const courseRoute=require("./server/routes/course")
 const app=express();
 var port=process.env.PORT || 8080;
 
@@ -26,6 +27,11 @@ app.use(function(req, res, next) {
 
 app.use("/",mainRoute)
 app.use(express.static(path.join(__dirname, 'public')))
+
+app.get("/admin",function(){
+    app.sendFile(__dirname + "/public/" + "admin.html")
+})
+app.use("/admin/admincourse",courseRoute)
 app.listen(port,function(){
     console.log("App is running on port ",port);
 })
