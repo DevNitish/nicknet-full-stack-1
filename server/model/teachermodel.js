@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const teacherSchema = new Schema({
-    teachername: String,
-    teachermail: String,
-    teachersalary: Number,
-    teacherpass: String
+    teacherName: String,
+    teacherMail: String,
+    teacherSalary: Number,
+    teacherPass: String
 })
 
 teacherSchema.statics.showallTeachers=function (callback) {
