@@ -20,7 +20,7 @@ courseSchema.statics.showallCourses=function (callback) {
   
 
   courseSchema.statics.addnewCourses=function (obj,callback) {
-    obj.save(),function(err,data){
+    this.save(obj),function(err,data){
         if(err){
             callback(err,null);
         }else{
@@ -42,3 +42,4 @@ courseSchema.statics.showallCourses=function (callback) {
 
 
 const course = mongoose.model('course', courseSchema);
+module.exports=course;
