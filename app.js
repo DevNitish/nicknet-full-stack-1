@@ -7,7 +7,7 @@ const mainRoute=require("./server/routes/index")
 const courseRoute=require("./server/routes/course")
 const app=express();
 var port=process.env.PORT || 8080;
-
+var User = require('/model/user');
 mongoose.set('useCreateIndex', true);
 //Connect to Mongo using mongoose
 /* app.use(function(req, res, next) {
@@ -36,7 +36,9 @@ mongoose.connection.once('open' , function(){
     console.log(error);
 });
 
-
+app.get('/',(req,res)=>{
+    res.status(200).send('Hi welcome to Login and Signup API');
+})
 
 
 
