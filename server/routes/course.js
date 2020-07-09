@@ -40,7 +40,7 @@ router.post("/addnewcourse", urlencodedParser,function(req,res){
         }
     })
 });
-router.get("/getallcourse", urlencodedParser,function(req,res){
+router.get("/getallcourse",function(req,res){
     Course.getAllCourses(function(err,result){
         if(err){
             res.status(400).send('Course not found!');
