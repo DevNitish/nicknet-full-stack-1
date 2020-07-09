@@ -7,7 +7,10 @@ const userSchema = new Schema({
         type: String,
         unique: true
     },
-    password: String,
+    password: {
+        type: String,
+        require: true
+    },
     createdOn: {
         type: Date,
         default: new Date()
@@ -36,6 +39,30 @@ userSchema.statics.findOneUser=function(userId,callback){
         }
     })
 }
+userSchema.statics.editUser=function(userDetail, callback)
+{
+	this.findOne({
+		_id:userDetail._id
+	},function(err,data)
+	{		if(!err){
+			data.email=userDetail.email;
+			data.name=userDetail.name;
+			data.password=userDetail.password;
+				data.save(function(err){
+					if(err)
+						callback(err,null);
+					else
+					callback(null,data);
+				})
+				
+			}
+			else{
+				callback(err,null);
+			}
+				
+	})
+};
+
 userSchema.statics.saveUser=function(user,callback){
     this.create({
         user

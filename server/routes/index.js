@@ -4,7 +4,6 @@ const router =express.Router();
 const USER= require("../model/user");
 
 
-
 router.get("/findalluser",function(req,res){
     USER.findAllUser(function(err,result){
         if(err){
