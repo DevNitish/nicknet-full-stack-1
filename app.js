@@ -29,8 +29,8 @@ mongoose.set('useCreateIndex', true);
     }
 }); */
 
-app.use(bodyparser.urlencoded({ extended: false }));
-app.use(bodyparser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //connecting to database
 mongoose.connect(config.connectionstring , { useNewUrlParser: true , useUnifiedTopology: true});
