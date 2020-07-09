@@ -65,15 +65,31 @@ userSchema.statics.editUser=function(userDetail, callback)
 
 userSchema.statics.saveUser=function(user,callback){
     this.create({
-        user
+        email:user.email,
+        name:user.name,
+		password:user.password
+    
     },function(err,data){
         if(err){
+            console.log('Data Error');
+
             callback(err,null);
         }else{
+            console.log('Data inserted successfully...');
             callback(null,data);
         }
-    })
-}
+    });
+};
+
+userSchema.statics.deleteUser=function(userId, callback)
+{		console.log("deleteUser id",userId);
+	this.findOne({
+		_id:userId
+    
+	}).remove( ).exec();
+	callback(null, 'Deleted');
+     
+};
 const user=mongoose.model('users',userSchema);
 
 module.exports=user;

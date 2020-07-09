@@ -19,6 +19,8 @@ mongoose.set('useCreateIndex', true);
 
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //connecting to database
 mongoose.connect(config.connectionstring , { useNewUrlParser: true , useUnifiedTopology: true});
