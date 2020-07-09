@@ -5,6 +5,7 @@ const path=require("path");
 const config= require("./dev.json");
 const mainRoute=require("./server/routes/index")
 const courseRoute=require("./server/routes/course")
+const Course= require("./server/model/coursemodel");
 const app=express();
 var port=process.env.PORT || 8080;
 
@@ -31,7 +32,16 @@ mongoose.connect(config.connectionstring , { useNewUrlParser: true , useUnifiedT
 mongoose.set('useFindAndModify', false);
 mongoose.connection.once('open' , function(){
     console.log('database on');
-    
+    /*var obj = new Course({
+        coursename: "testcourse",
+        coursedesc: "testdec=sc",
+        courseprice: "87",
+        courseduration: "23"
+    });
+    obj.save().then(function(){
+        console.log('done saving');
+        
+    }); */ 
 }).on('error' , function(error){
     console.log(error);
 });

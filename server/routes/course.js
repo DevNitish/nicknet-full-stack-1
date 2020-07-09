@@ -8,12 +8,23 @@ const Course= require("../model/coursemodel");
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 //edit is same as 'create' but it needs an identifier key i.e. _id to search the object
-router.post("/editcourse",function(req,res){
-    Course.updateCourses(function(err,result){
+router.post("/editcourse", urlencodedParser,function(req,res){
+    Course.updateCourses(req.body,function(err,result){
         if(err){
             res.status(400).send('Course not found!');
         }else{
             res.send(result);
+        }
+    })
+});
+
+router.get("/viewcourse", urlencodedParser,function(req,res){
+    Course.getAllCourses(function(err,result){
+        if(err){
+            res.status(400).send('Users not found!');
+        }else{
+            res.send(result);
+            console.log(result);
         }
     })
 });

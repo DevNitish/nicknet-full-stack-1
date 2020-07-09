@@ -36,14 +36,27 @@ courseSchema.statics.getAllCourses=function (callback) {
             }
     }) 
   }
-  courseSchema.statics.updateCourses=function (obj,callback) {
-    this.findOneAndupdate({courseName:obj.name},{courseDesc:obj.desc},{coursePrice:obj.price},{courseDuration:obj.duration}),function(err,data){
-        if(err){
-            callback(err,null);
-        }else{
-            callback(null,data);
-        }
-  }
+  courseSchema.statics.updateCourses=function (courseDetail,callback) {
+    this.findOne({
+		_id:courseDetail._id
+	},function(err,data)
+	{		if(!err){
+        data.courseDesc= courseDetail.courseDesc;
+        data.coursePrice= courseDetail.coursePrice;
+        data.courseDuration= courseDetail.courseDuration;
+				data.save(function(err){
+					if(err)
+						callback(err,null);
+					else
+					callback(null,data);
+				})
+				
+			}
+			else{
+				callback(err,null);
+			}
+				
+	})
 }
   courseSchema.statics.deleteCourse=function (courseId, callback) {
       console.log('courseId',courseId);
