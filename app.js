@@ -7,8 +7,10 @@ const mainRoute=require("./server/routes/index");
 const courseRoute=require("./server/routes/course");
 const loginRoute=require("./server/routes/userlogin");
 const signupRoute=require("./server/routes/usersignup");
+const teacherRoute=require("./server/routes/teacher");
 const Course= require("./server/model/coursemodel");
 const User = require("./server/model/user");
+const Teacher=require("./server/model/teachermodel");
 const app=express();
 var port=process.env.PORT || 8080;
 
@@ -71,6 +73,7 @@ app.get("/admin",function(req,res){
     res.sendFile(__dirname + "/public/" + "admin.html")
 })
 app.use("/admin/admincourse",courseRoute)
+app.use("/admin/adminteacher",teacherRoute)
 app.listen(port,function(){
     console.log("App is running on port ",port);
 })
