@@ -8,6 +8,9 @@ const courseRoute=require("./server/routes/course");
 const loginRoute=require("./server/routes/userlogin");
 const signupRoute=require("./server/routes/usersignup");
 const teacherRoute=require("./server/routes/teacher");
+const queryRoute=require("./server/routes/query");
+const contactRoute=require("./server/routes/contactus");
+const teachereditRoute=require("./server/routes/adminteacher")
 const Course= require("./server/model/coursemodel");
 const User = require("./server/model/user");
 const Teacher=require("./server/model/teachermodel");
@@ -15,23 +18,9 @@ const app=express();
 var port=process.env.PORT || 8080;
 
 mongoose.set('useCreateIndex', true);
-//Connect to Mongo using mongoose
-/* app.use(function(req, res, next) {
-    if (mongoose.connection.readyState != 1) {
-        mongoose.connect(config.connectionstring, function(error) {
-            if (error) {
-                console.log("error while connecting to mongo");
-                throw error;
-                // Handle failed connection
-            } 
-            console.log('conn ready:  ' + mongoose.connection.readyState);
-            next();
-        });
-    } else {
-        next();
-    }
-}); */
 
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -40,16 +29,7 @@ mongoose.connect(config.connectionstring , { useNewUrlParser: true , useUnifiedT
 mongoose.set('useFindAndModify', false);
 mongoose.connection.once('open' , function(){
     console.log('database on');
-    /*var obj = new Course({
-        coursename: "testcourse",
-        coursedesc: "testdec=sc",
-        courseprice: "87",
-        courseduration: "23"
-    });
-    obj.save().then(function(){
-        console.log('done saving');
-        
-    }); */ 
+
 }).on('error' , function(error){
     console.log(error);
 });
@@ -63,17 +43,28 @@ app.use("/login",loginRoute)
 app.use("/",mainRoute)
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.get("/signup",function(req,res){
+app.get("/contactus",function(req,res){
+    res.sendFile(__dirname + "/public/" + "contact.html")
+})
+
+app.get("/signup1",function(req,res){
     res.sendFile(__dirname + "/public/" + "signup.html")
 })
-app.get("/login",function(req,res){
+app.get("/login1",function(req,res){
     res.sendFile(__dirname + "/public/" + "login.html")
 })
 app.get("/admin",function(req,res){
     res.sendFile(__dirname + "/public/" + "admin.html")
 })
 app.use("/admin/admincourse",courseRoute)
-app.use("/admin/adminteacher",teacherRoute)
+app.use("/admin/teacher",teacherRoute)
+
+
+
+app.use("/contactus", urlencodedParser,contactRoute)
+app.use("/admin/course", urlencodedParser,courseRoute)
+app.use("/admin/query", urlencodedParser,queryRoute)
+app.use("/admin/admin-teacher", urlencodedParser,teachereditRoute)
 app.listen(port,function(){
     console.log("App is running on port ",port);
 })

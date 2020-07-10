@@ -6,7 +6,8 @@ const Teacher= require("../model/teachermodel");
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
-router.get("/editteacher",urlencodedParser,function(req,res){
+router.post("/editteacher",urlencodedParser,function(req,res){
+    console.log("req body",req.body);
     Teacher.updateTeachers(req.body,function(err,result){
         if(err){
             res.status(400).send('Users not found!');
