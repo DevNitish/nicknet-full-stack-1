@@ -8,37 +8,84 @@ const teacherSchema = new Schema({
     teacherPass: String
 })
 
-teacherSchema.statics.showallTeachers=function (callback) {
-    this.find({}),function(err,data){
-        if(err){
-            callback(err,null);
-        }else{
-            callback(null,data);
-        }
-  }
-}
-  
 
-  teacherSchema.statics.addnewTeachers=function (obj,callback) {
-    obj.save(),function(err,data){
+teacherSchema.statics.showallTeachers=function (callback) {
+    
+    this.find({},function(err,data){
         if(err){
             callback(err,null);
         }else{
             callback(null,data);
         }
-  } 
+  })
+}
+
+  teacherSchema.statics.addnewTeachers=function (teacherDetail,callback) {
+    var newTeacherObj ={
+        teacherName: teacherDetail.teacherName,
+        teacherMail: teacherDetail.teacherMail,
+        teacherSalary: teacherDetail.teacherSalary,
+        teacherPass: teacherDetail.teacherPass
+        
+    };
+    console.log("newTeacherObj: ",newTeacherObj);
+    this.create(newTeacherObj,function(err,data){
+            if(err){
+                callback(err,null);
+            }else{
+                callback(null,data);
+            }
+    }) 
   }
   teacherSchema.statics.updateTeachers=function (obj,callback) {
-    this.findOneAndupdate({teachersalary:obj.salary}),function(err,data){
-        if(err){
-            callback(err,null);
-        }else{
-            callback(null,data);
-        }
-  }
+    this.findOne({
+		_id:obj._id
+	},function(err,data)
+	{		if(!err){
+        data.teacherName= obj.teacherName;
+        data.teacherMail= obj.teacherMail;
+        data.teacherPass= obj.teacherPass;
+				data.save(function(err){
+					if(err)
+						callback(err,null);
+					else
+					callback(null,data);
+				})
+				
+			}
+			else{
+				callback(err,null);
+			}
+				
+	})
+}
+
+teacherSchema.statics.adminteacherUpdate=function (teacherDetail,callback) {
+    this.findOne({
+		_id:teacherDetail._id
+	},function(err,data)
+	{		if(!err){
+        data.teacherName= teacherDetail.teacherName;
+        data.teacherMail= teacherDetail.teacherMail;
+        data.teacherSalary= teacherDetail.teacherSalary;
+        data.teacherPass= teacherDetail.teacherPass
+				data.save(function(err){
+					if(err)
+						callback(err,null);
+					else
+					callback(null,data);
+				})
+				
+			}
+			else{
+				callback(err,null);
+			}
+				
+	})
 }
 
 
 
 
 const teacher = mongoose.model('teacher', teacherSchema);
+module.exports=teacher;
