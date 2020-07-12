@@ -5,7 +5,8 @@ const userSchema = new Schema({
     name: String,
     email: {
         type: String,
-        unique: true
+        unique: true,
+        require:true
     },
     password: {
         type: String,
@@ -16,6 +17,8 @@ const userSchema = new Schema({
         default: new Date()
     }
 })
+
+
 
 userSchema.statics.findAllUser=function(callback){
     this.find({
