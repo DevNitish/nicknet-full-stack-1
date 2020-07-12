@@ -3,7 +3,7 @@
 	<head>
         <meta charset="UTF-8">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title> Signup Form</title>
+		<title> Signup Form from EJS</title>
 		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 		
@@ -23,12 +23,12 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div class="navbar-nav" >
                     <a class="nav-item nav-link active" href="#" style="color: #002856;">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#" style="color: #002856;">Courses</a>
+                    <a class="nav-item nav-link" href="/courses" style="color: #002856;">Courses</a>
                     <a class="nav-item nav-link" href="#" style="color: #002856;">Contact Us</a>
                   </div>
                 </div>
                 <div id="buttonsonly">
-                <a  href="signup.html" button" class="btn my-2 my-sm-0 mx-2" type="submit">Sign Up</a>
+                <a  href="/signup" button" class="btn my-2 my-sm-0 mx-2" type="submit">Sign Up</a>
                 <a  href="login.html" button" class="btn  my-2 my-sm-0" type="submit">Login</a>
               </div>
               </nav>
@@ -44,7 +44,7 @@
 					<!-- Action attribute is the route on backend. Method is POST -->
 					<form action="/sign_up" method="post">
 					
-            <h1> Signup form </h1>
+            <h1> Signup form <%= name %></h1>
             
 						<div class="fontuser">
                             <i class="fa fa-user fa-lg"></i> 	

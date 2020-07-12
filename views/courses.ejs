@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css" >
+    <link rel="stylesheet" type="text/css" href="./CSS/style.css" >
     <title>Courses|Nicknet Online Learning</title>
   </head>
   <body>
@@ -129,19 +129,19 @@
         </div>
       </div>
       <div class="row">
-        <div class="card-deck my-2">
-            <% data.forEach(function(course){ %>
+        <% data.forEach(function(course){ %>
+          <div  class="col-4">
                 <div class="card newcourses">
-                    <img src="https://img-a.udemycdn.com/course/750x422/1759194_6509_4.jpg" class="card-img-top" alt="...">
+                    <img src="<%= course.courseBanner %>" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title"><%= course.courseName %></h5>
                       <p class="card-text" ><strong class="text-muted"><%= course.courseDesc %></strong></p>
                       <a role="button" class="btn btn-sm my-2  align-self-end" type="submit" style="color: white;">Enroll now</a>
-                      <a role="button" class="btn btn-sm  my-2 " type="submit"  style="color: white;">Read more</a>
+                      <a role="button" class="btn btn-sm  my-2 " type="submit" data-toggle="modal" data-target="#exampleModal5" onclick="getModel('<%= course.courseName %>','<%= course.courseDesc %>','<%= course.courseDuration %>','<%= course.coursePrice %>','<%= course.courseBanner %>')" style="color: white;">Read more</a>
                     </div>
                   </div>
-                  <% }); %>
-        </div>
+              </div>
+        <% }); %>
 
       </div>
         <!--Cards-->
@@ -150,18 +150,18 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Complete Python Developer Course</h5>
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <img src="https://blog.insaid.co/wp-content/uploads/2019/04/Python-logo.jpg"
+            <img id="modelImage"
               class="modal-img">
-            <p>How to become a Python 3 Developer and get hired! Build 12+ projects, learn Web Development, Machine Learning + more </p>
-            <p class="text-muted text-center"><strong>30 HOURS</strong></p>
-            <p class="text-muted text-center"><strong>Free</strong></p>
-          </div>
+            <p id="modelDesc"> </p>
+            <p class="text-muted text-center" id="modelDuration"><strong></strong></p>
+            <p class="text-muted text-center" id="modelPrice"><strong></strong></p>
+          </div> 
           <div class="modal-footer">
             <a type="button" class="btn " data-dismiss="modal">Close</a>
             <a type="button" class="btn ">Enroll Now!</a>
@@ -196,11 +196,12 @@
     </nav>
   </footer>
 
-    <!-- Optional JavaScript -->
-    <script src="/Public/js/coursepagescript.js"></script>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <script src="./js/myscript.js"></script>
   </body>
 </html>

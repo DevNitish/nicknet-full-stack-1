@@ -27,7 +27,9 @@ courseSchema.statics.getAllCourses=function (callback) {
         courseName: courseDetail.courseName,
         courseDesc: courseDetail.courseDesc,
         coursePrice: courseDetail.coursePrice,
-        courseDuration: courseDetail.courseDuration
+        courseDuration: courseDetail.courseDuration,
+        courseBanner: courseDetail.courseBanner,
+        courseTeacher: courseDetail.courseTeacher
     };
     console.log("newCourseObj: ",newCourseObj);
     this.create(newCourseObj,function(err,data){
@@ -46,6 +48,8 @@ courseSchema.statics.getAllCourses=function (callback) {
         data.courseDesc= courseDetail.courseDesc;
         data.coursePrice= courseDetail.coursePrice;
         data.courseDuration= courseDetail.courseDuration;
+        data.courseBanner= courseDetail.courseBanner;
+        data.courseTeacher= courseDetail.courseTeacher;
 				data.save(function(err){
 					if(err)
 						callback(err,null);

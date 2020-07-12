@@ -68,6 +68,11 @@ footer a{
     object-fit: cover;
 }
 
+.newcourses{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    height:auto;
+}
 .newcourses h5{
     font-size: 15px;
 }

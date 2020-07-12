@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //views
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '/public/views'));
+app.set('views', path.join(__dirname, '/views'));
 
 
 //connecting to database
@@ -54,7 +54,7 @@ app.get("/contactus",function(req,res){
 })
 
 app.get("/signup",function(req,res){
-    res.sendFile(__dirname + "/public/" + "signup.html")
+    res.render("signup.ejs",{name:"Nitish"})
 })
 app.get("/login",function(req,res){
     res.sendFile(__dirname + "/public/" + "login.html")
