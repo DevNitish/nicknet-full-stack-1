@@ -33,24 +33,24 @@ mongoose.connection.once('open' , function(){
 }).on('error' , function(error){
     console.log(error);
 });
-
 app.get('/',(req,res)=>{
     res.status(200).send('Hi welcome to Login and Signup API');
 })
 
-app.use("/signup",signupRoute)
-app.use("/login",loginRoute)
+app.use("/admin/signuppage",signupRoute)
+app.use("/admin/loginpage",loginRoute)
 app.use("/",mainRoute)
+app.use("/admin",loginRoute)
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get("/contactus",function(req,res){
     res.sendFile(__dirname + "/public/" + "contact.html")
 })
 
-app.get("/signup1",function(req,res){
+app.get("/signup",function(req,res){
     res.sendFile(__dirname + "/public/" + "signup.html")
 })
-app.get("/login1",function(req,res){
+app.get("/login",function(req,res){
     res.sendFile(__dirname + "/public/" + "login.html")
 })
 app.get("/admin",function(req,res){
