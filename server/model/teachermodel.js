@@ -38,13 +38,26 @@ teacherSchema.statics.showallTeachers=function (callback) {
     }) 
   }
   teacherSchema.statics.updateTeachers=function (obj,callback) {
-    this.findOneAndupdate({teachersalary:obj.salary}),function(err,data){
-        if(err){
-            callback(err,null);
-        }else{
-            callback(null,data);
-        }
-  }
+    this.findOne({
+		_id:obj._id
+	},function(err,data)
+	{		if(!err){
+        data.teacherName= obj.teacherName;
+        data.teacherMail= obj.teacherMail;
+        data.teacherPass= obj.teacherPass;
+				data.save(function(err){
+					if(err)
+						callback(err,null);
+					else
+					callback(null,data);
+				})
+				
+			}
+			else{
+				callback(err,null);
+			}
+				
+	})
 }
 
 teacherSchema.statics.adminteacherUpdate=function (teacherDetail,callback) {

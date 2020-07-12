@@ -7,12 +7,14 @@ const mainRoute=require("./server/routes/index");
 const courseRoute=require("./server/routes/course");
 const loginRoute=require("./server/routes/userlogin");
 const signupRoute=require("./server/routes/usersignup");
+const teacherRoute=require("./server/routes/teacher");
 const queryRoute=require("./server/routes/query");
 const contactRoute=require("./server/routes/contactus");
 const teachereditRoute=require("./server/routes/adminteacher")
 const coursepageRoute=require("./server/routes/coursepage")
 const Course= require("./server/model/coursemodel");
 const User = require("./server/model/user");
+const Teacher=require("./server/model/teachermodel");
 const app=express();
 var port=process.env.PORT || 8080;
 
@@ -50,15 +52,17 @@ app.get("/contactus",function(req,res){
     res.sendFile(__dirname + "/public/" + "contact.html")
 })
 
-app.get("/signup",function(req,res){
+app.get("/signup1",function(req,res){
     res.sendFile(__dirname + "/public/" + "signup.html")
 })
-app.get("/login",function(req,res){
+app.get("/login1",function(req,res){
     res.sendFile(__dirname + "/public/" + "login.html")
 })
 app.get("/admin",function(req,res){
     res.sendFile(__dirname + "/public/" + "admin.html")
 })
+app.use("/admin/admincourse",courseRoute)
+app.use("/admin/teacher",teacherRoute)
 
 
 app.use("/courses", urlencodedParser,coursepageRoute)
