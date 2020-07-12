@@ -5,7 +5,9 @@ const courseSchema = new Schema({
     courseName: String,
     courseDesc: String,
     coursePrice: Number,
-    courseDuration: Number
+    courseDuration: Number,
+    courseBanner: String,
+    courseTeacher: String
 })
 
 courseSchema.statics.getAllCourses=function (callback) {
