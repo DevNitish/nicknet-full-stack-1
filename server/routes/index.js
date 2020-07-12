@@ -1,8 +1,27 @@
 //API end points
+const ejsLint = require('ejs-lint');
 const express=require('express');
 const router =express.Router();
+const Course= require("../model/coursemodel");
 const USER= require("../model/user");
 const path=require("path");
+
+
+
+/*router.get('/', function(req,res){
+  Course.getAllCourses(function(err,result){
+    if(err){
+        res.status(400).send('courses not found!');
+    }else{
+      
+      res.render('index' , {data:result})
+       // res.send(result);
+        console.log(result);
+    }
+})
+  
+}) */
+
 
 router.get("/findalluser",function(req,res){
     USER.findAllUser(function(err,result){

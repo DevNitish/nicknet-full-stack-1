@@ -10,6 +10,7 @@ const signupRoute=require("./server/routes/usersignup");
 const queryRoute=require("./server/routes/query");
 const contactRoute=require("./server/routes/contactus");
 const teachereditRoute=require("./server/routes/adminteacher")
+const coursepageRoute=require("./server/routes/coursepage")
 const Course= require("./server/model/coursemodel");
 const User = require("./server/model/user");
 const app=express();
@@ -21,6 +22,10 @@ mongoose.set('useCreateIndex', true);
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+//views
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/public/views'));
+
 
 //connecting to database
 mongoose.connect(config.connectionstring , { useNewUrlParser: true , useUnifiedTopology: true});
@@ -32,13 +37,13 @@ mongoose.connection.once('open' , function(){
     console.log(error);
 });
 
-app.get('/',(req,res)=>{
+/*app.get('/',(req,res)=>{
     res.status(200).send('Hi welcome to Login and Signup API');
-})
+}) */
 
 app.use("/signup",signupRoute)
 app.use("/login",loginRoute)
-app.use("/",mainRoute)
+app.use("/", urlencodedParser,mainRoute)
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get("/contactus",function(req,res){
@@ -56,7 +61,7 @@ app.get("/admin",function(req,res){
 })
 
 
-
+app.use("/courses", urlencodedParser,coursepageRoute)
 app.use("/contactus", urlencodedParser,contactRoute)
 app.use("/admin/course", urlencodedParser,courseRoute)
 app.use("/admin/query", urlencodedParser,queryRoute)
