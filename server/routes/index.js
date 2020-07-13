@@ -8,19 +8,9 @@ const path=require("path");
 
 
 
-/*router.get('/', function(req,res){
-  Course.getAllCourses(function(err,result){
-    if(err){
-        res.status(400).send('courses not found!');
-    }else{
-      
-      res.render('index' , {data:result})
-       // res.send(result);
-        console.log(result);
-    }
-})
-  
-}) */
+router.get('/', function(req,res){
+  res.render('index') 
+}) 
 
 
 router.get("/findalluser",function(req,res){

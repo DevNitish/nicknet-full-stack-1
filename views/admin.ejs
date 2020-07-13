@@ -7,21 +7,21 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="/Public/style.css">
+    <link rel="stylesheet" href="./CSS/style.css">
     <title>Admin|Nicknet Online Learning</title>
   </head>
   <body>
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg bg-light navbar-light"  >
-        <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="35" height="35" class="d-inline-block align-top" alt="" loading="lazy">&nbsp;<span id="logoname" style="font-family: Impact, Charcoal, serif; ">Nicknet Online Learning</span></a>
+        <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="35" height="35" class="d-inline-block align-top" alt="" loading="lazy">&nbsp;<span id="logoname" >Nicknet Online Learning</span></a>
         <button class="navbar-toggler" type="button "  data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav" >
-            <a class="nav-item nav-link active" href="index.html" style="color: #002856;">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="courses.html" style="color: #002856;">Courses</a>
-            <a class="nav-item nav-link" href="#" style="color: #002856;">Contact Us</a>
+            <a class="nav-item nav-link active" href="/" style="color: #002856;">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/courses" style="color: #002856;">Courses</a>
+            <a class="nav-item nav-link" href="/contactus" style="color: #002856;">Contact Us</a>
           </div>
         </div>
        <!-- <div id="buttonsonly">
@@ -52,68 +52,17 @@
               <!--editcoursestab-->
             <div class="tab-pane fade show active" id="edit-courses" role="tabpanel" aria-labelledby="nav-ecourses-tab">
                 <div class="row">
-                <div class="card-deck my-3">
-                    <div class="card">
-                      <img src="https://blog.insaid.co/wp-content/uploads/2019/04/Python-logo.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Complete Python Developer Course</h5>
-                        <a role="button" class="btn btn-block " type="submit" data-toggle="modal" data-target="#modal" style="color: white;">Edit</a> 
-                      </div>
-                    </div>
-                    <div class="card">
-                      <img src="https://pbs.twimg.com/profile_images/882558757531791360/CGKUrcD9_400x400.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Unity Android 2020 : Build 7 Games with Unity & C#</h5>
-                        <a role="button" class="btn btn-block " type="submit"  style="color: white;">Edit</a> 
-                      </div>
-                    </div>
-                    <div class="card">
-                      <img src="https://trellis.co/wp-content/uploads/2019/02/Blog-Post-Banners-3.png" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Build ECommerce Shopping Cart By React & Redux 2020 Edition</h5>
-                        <a role="button" class="btn btn-block " type="submit"  style="color: white;">Edit</a> 
-                      </div>
-                    </div>
-                    <div class="card">
-                        <img src="https://devqa.io/assets/images/ethical-hacking-penetration-testing.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Practical Ethical Hacking - The Complete Course</h5>
-                          <a role="button" class="btn btn-block " type="submit"  style="color: white;">Edit</a> 
-                        </div>
-                      </div>
-                  </div>
-                </div>
-                <div class="row">
-                    <div class="card-deck my-3">
-                        <div class="card">
-                          <img src="https://img-a.udemycdn.com/course/750x422/1759194_6509_4.jpg" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Graph Theory Algorithms</h5>
-                            <a role="button" class="btn btn-block " type="submit"  style="color: white;">Edit</a> 
-                          </div>
-                        </div>
-                        <div class="card">
-                          <img src="https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2018/12/20/Photos/Opinion/cybersecurity-istockphoto-kqv--621x414@LiveMint.jpg" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Cyber Security - Go From Zero to Hero in 2020</h5>
-                            <a role="button" class="btn btn-block " type="submit"  style="color: white;">Edit</a> 
-                          </div>
-                        </div>
-                        <div class="card">
-                          <img src="https://www.openbravo.com/blog/wp-content/uploads/2020/03/azure-cloud.jpg" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Microsoft Azure cloud - Beginner Bootcamp (Updated Sep 2019)</h5>
-                            <a role="button" class="btn btn-block " type="submit"  style="color: white;">Edit</a> 
-                          </div>
-                        </div>
-                        <div class="card">
-                            <img src="https://cdn.mindmajix.com/courses/drools-training-120620.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Master Drools - Turn Complex Logic into Simple to Read Rules</h5>
-                              <a role="button" class="btn btn-block " type="submit"  style="color: white;">Edit</a> 
+                  <% data.forEach(function(course){ %>
+                    <div  class="col-4">
+                          <div class="card newcourses">
+                              <img src="<%= course.courseBanner %>" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                <h5 class="card-title"><%= course.courseName %></h5>
+                                <a role="button" class="btn btn-block " type="submit"  style="color: white;" data-toggle="modal" data-target="#modal" >Edit</a> 
+                              </div>
                             </div>
-                          </div>
-                      </div>
+                        </div>
+                  <% }); %>
                     </div>
             </div>
             <!--editcoursestab END-->
@@ -245,9 +194,14 @@
                     <input type="text" class="form-control" id="course-duration">
                   </div>
                   <div class="form-group">
+                    <label for="course-banner" class="col-form-label">Course Banner URL:</label>
+                    <input type="text" class="form-control" id="course-banner">
+                  </div>
+                  <div class="form-group">
                     <label for="message-text" class="col-form-label">Description:</label>
                     <textarea class="form-control" id="message-text"></textarea>
                   </div>
+                  
                 </form>
               </div>
               <div class="modal-footer">
@@ -281,6 +235,7 @@
                     <label for="teacher-pass" class="col-form-label">Password:</label>
                     <input type="text" class="form-control" id="teacher-pass">
                   </div>
+                  
                   <div class="form-group">
                     <label for="teacher-salary" class="col-form-label">Salary:</label>
                     <input type="number" class="form-control" id="teacher-salary" disabled>
@@ -300,17 +255,17 @@
             <nav class="navbar bg-light">
               <div class="container">
               <!-- Links -->
-              <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="80" height="80" class="d-inline" alt="" loading="lazy">&nbsp;<span  id="logoname" style="font-family: Impact, Charcoal, serif; ">Nicknet Online Learning &nbsp;</span></a>
+              <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="80" height="80" class="d-inline" alt="" loading="lazy">&nbsp;<span  id="logoname" >Nicknet Online Learning &nbsp;</span></a>
            
               <ul class="navbar-nav mx-5 my-5 mr-auto ">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Home</a>
+                  <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Courses</a>
+                  <a class="nav-link" href="/courses">Courses</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Contact Us</a>
+                  <a class="nav-link" href="/contactus">Contact Us</a>
                 </li>
               </ul>
               <div class="row">
