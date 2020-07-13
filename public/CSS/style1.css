@@ -20,17 +20,17 @@
 
 .main{
 	padding:20px;
-	font-family: 'Josefin Slab', serif;
+	
 	
 }
 .main h1{
 	font-size: 30px;
 	text-align:center;
-	font-family: 'Josefin Slab', serif;
+	
 	color: #002856;
 }
 input{
-	font-family: 'Josefin Slab', serif;
+	
     width: 100%;
 	font-size: 30px;
     padding: 12px 20px;
@@ -38,7 +38,7 @@ input{
     border: none;
 }
 button[type=submit] {
-	font-family: 'Josefin Slab', serif;
+	
 	width: 100%;
     background-color:  #ff540a;
     border: none;
@@ -57,7 +57,7 @@ button:focus {
 }
 
 input:hover {
-	font-family: 'Josefin Slab', serif;
+	
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -65,7 +65,7 @@ input:hover {
 }
 
 button[type=submit]:hover {
-	font-family: 'Josefin Slab', serif;
+	
 	width: 100%;
     background-color:  #e64500;
     border: none;

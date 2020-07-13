@@ -51,7 +51,7 @@
                     <div class="card-body">
                       <h5 class="card-title"><%= course.courseName %></h5>
                       <p class="card-text" ><strong class="text-muted"><%= course.courseTeacher %></strong></p>
-                      <a role="button" class="btn btn-sm my-2  align-self-end" type="submit" style="color: white;">Enroll now</a>
+                      <a role="button" class="btn btn-sm my-2  align-self-end" type="submit" href="/signup" style="color: white;">Enroll now</a>
                       <a role="button" class="btn btn-sm  my-2 " type="submit" data-toggle="modal" data-target="#exampleModal5" onclick="getModel('<%= course.courseName %>','<%= course.courseDesc %>','<%= course.courseDuration %>','<%= course.coursePrice %>','<%= course.courseBanner %>')" style="color: white;">Read more</a>
                     </div>
                   </div>
@@ -79,7 +79,7 @@
           </div> 
           <div class="modal-footer">
             <a type="button" class="btn " style=" color: white;" data-dismiss="modal">Close</a>
-            <a type="button" class="btn " style=" color: white;">Enroll Now!</a>
+            <a type="button" class="btn " style=" color: white;" href="/signup">Enroll Now!</a>
           </div>
         </div>
       </div>

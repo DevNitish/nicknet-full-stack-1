@@ -13,20 +13,20 @@
         <div class="container-fluid">
             <!--NAVBAR-->
             <nav class="navbar navbar-expand-lg bg-light navbar-light"  >
-                <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="35" height="35" class="d-inline-block align-top" alt="" loading="lazy">&nbsp;<span id="logoname" style="font-family: Impact, Charcoal, serif; ">Nicknet Online Learning</span></a>
+                <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="35" height="35" class="d-inline-block align-top" alt="" loading="lazy">&nbsp;<span id="logoname" >Nicknet Online Learning</span></a>
                 <button class="navbar-toggler" type="button "  data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div class="navbar-nav" >
-                    <a class="nav-item nav-link active" href="#" style="color: #002856;">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#" style="color: #002856;">Courses</a>
+                    <a class="nav-item nav-link active" href="/" style="color: #002856;">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="/courses" style="color: #002856;">Courses</a>
                     <a class="nav-item nav-link" href="#" style="color: #002856;">Contact Us</a>
                   </div>
                 </div>
                 <div id="buttonsonly">
-                <a  href="signup.html" button" class="btn my-2 my-sm-0 mx-2" type="submit">Sign Up</a>
-                <a  href="login.html" button" class="btn  my-2 my-sm-0" type="submit">Login</a>
+                <a  href="/signup" class="btn my-2 my-sm-0 mx-2" type="submit">Sign Up</a>
+                <a  href="/login" class="btn  my-2 my-sm-0" type="submit">Login</a>
               </div>
               </nav>
           </div>
@@ -42,54 +42,28 @@
               <div class="row">
                 <div class="col-8">
                   <h5 class="font-weight-bold text-center  px-3 mx-0 bg-light text-dark">Fill in the details below!</h4>
-                    <form  id="form1" onsubmit="return validateForm()" method="GET">
+                    <form >
                      <div class="form-group row">
-                       <label for="inputEmail" class="col-2 col-form-label">Email</label>
+                       <label for="queryuserMail" class="col-2 col-form-label">Email</label>
                        <div class="col-8 col-sm-10">
-                         <input type="email" class="form-control" id="inputEmail">
+                         <input type="email" class="form-control" id="queryuserMail" required/>
                        </div>
                      </div>
                      <div class="form-group row">
-                       <label for="inputName" class="col-2 col-form-label">Name</label>
+                       <label for="queryUser" class="col-2 col-form-label">Name</label>
                        <div class="col-8 col-sm-10">
-                         <input type="text" class="form-control" id="inputName">
+                         <input type="text" class="form-control" id="queryUser" required/>
                        </div>
                      </div>
-                     <fieldset class="form-group row">
-                       <div class="row">
-                         <legend class="col-form-label col-4 mx-3 ">How did you come to know about us?</legend>
-                        <div class="col">
-                           <div class="form-check">
-                             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
-                               checked>
-                             <label class="form-check-label" for="gridRadios1">
-                               From a friend
-                             </label>
-                           </div>
-                           <div class="form-check">
-                             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                             <label class="form-check-label" for="gridRadios2">
-                               just stumbled here
-                             </label>
-                           </div>
-                           <div class="form-check">
-                             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
-                             <label class="form-check-label" for="gridRadios3">
-                               On the Internet
-                             </label>
-                           </div>
-                        </div> 
-                        </div>
-                     </fieldset>
                      <div class="form-group row">
-                        <label for="feedback">Feedback:</label>:</label>
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                        <label for="queryDesc">Query:</label>
+                        <textarea class="form-control" rows="5" id="queryDesc" required></textarea>
                       </div>
                      <div class="form-group row">
                        <div class="col-3">Do you verify the information provided?</div>
                        <div class="col">
                          <div class="form-check mx-3">
-                           <input class="form-check-input" type="checkbox" id="gridCheck1">
+                           <input class="form-check-input" type="checkbox" id="gridCheck1" required/>
                            <label class="form-check-label" for="gridCheck1">
                              Yes,I do
                            </label>
@@ -111,9 +85,9 @@
                 </div>
         
               </div>
-              <div id="logmsg"  role="alert">
-              </div>
-              <div id="logerror" role="alert">
+
+              <div class="alert alert-success"  id="alert1" role="alert">
+                Thanks for contacting us! we'll reply you in no time.
               </div>
               <!-- Main row-->
         
@@ -124,7 +98,7 @@
             <nav class="navbar bg-light">
               <div class="container">
               <!-- Links -->
-              <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="80" height="80" class="d-inline" alt="" loading="lazy">&nbsp;<span  id="logoname" style="font-family: Impact, Charcoal, serif; ">Nicknet Online Learning &nbsp;</span></a>
+              <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="80" height="80" class="d-inline" alt="" loading="lazy">&nbsp;<span  id="logoname" >Nicknet Online Learning &nbsp;</span></a>
            
               <ul class="navbar-nav mx-5 my-5 mr-auto ">
                 <li class="nav-item">
@@ -155,4 +129,5 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="./js/queryrequest.js"></script>
 </html>
