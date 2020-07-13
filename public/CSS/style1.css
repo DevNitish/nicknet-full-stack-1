@@ -10,14 +10,7 @@
 #logoname{
     color: #002856;
 }
-#edu-image {
-    background-image: url("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_267/http://stthomas.ac.in/wp-content/uploads/2020/05/app.jpg"); /* The image used */
-    background-color: #002856; /* Used if the image is unavailable */
-    height: 500px; /* You must set a specified height */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-  }
+
   footer a{
     font-weight: bold;
     font-size: 19px;
@@ -28,12 +21,10 @@
 .main{
 	padding:20px;
 	font-family: 'Josefin Slab', serif;
-	border : 2px solid #50d8a4;
-	border-radius: 15px;
 	
 }
 .main h1{
-	font-size: 50px;
+	font-size: 30px;
 	text-align:center;
 	font-family: 'Josefin Slab', serif;
 	color: #002856;
@@ -45,12 +36,11 @@ input{
     padding: 12px 20px;
     margin: 8px 0;
     border: none;
-    border-bottom: 2px solid #50d8a4;
 }
-input[type=submit] {
+button[type=submit] {
 	font-family: 'Josefin Slab', serif;
 	width: 100%;
-    background-color:  #ff540a;;
+    background-color:  #ff540a;
     border: none;
     color: white;
     padding: 16px 32px;
@@ -71,15 +61,13 @@ input:hover {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
-    box-sizing: border-box;
 	border: none;
-    border-bottom: 2px solid #549978;
 }
 
-input[type=submit]:hover {
+button[type=submit]:hover {
 	font-family: 'Josefin Slab', serif;
 	width: 100%;
-    background-color:  #ff540a;;
+    background-color:  #e64500;
     border: none;
     color: white;
     padding: 16px 32px;
@@ -88,5 +76,7 @@ input[type=submit]:hover {
     cursor: pointer;
 	border-radius: 15px;
 }
-								
-					
+#gridCheck1 {
+    position:absolute;
+    margin-left: -1.25rem;
+}					
