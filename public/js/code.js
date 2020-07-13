@@ -2,7 +2,6 @@ const log = $("#logmsg");
 const logerror = $("#logerror");
 log.hide();
 logerror.hide();
-//const userName = "";
 
 
 $(document).ready(function(){

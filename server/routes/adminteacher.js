@@ -3,7 +3,6 @@ const router =express.Router();
 const bodyParser = require('body-parser');
 const Teacher= require("../model/teachermodel");
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
 router.post("/editteacher",function(req,res){
     Teacher.adminteacherUpdate(req.body,function(err,result){
         if(err){

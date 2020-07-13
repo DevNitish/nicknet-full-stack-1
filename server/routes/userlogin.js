@@ -21,15 +21,7 @@ router.post('/checklogin',function(req,res){
           if(result === null){
               res.status(404).end();
           }else if(result.email === mail && result.password === pass){
-                 var adminmail = "mail@gmail.com";
-                 var adminpass = "12344";
-                if(result.email === adminmail && result.password === adminpass ){
-                  res.redirect('/admin')
-                  console.log("admin welcome");
-                } 
-                else{
                   res.send(console.log("welcome"));
-                }
           } else {
               res.status(404).end();
           }
@@ -39,29 +31,7 @@ router.post('/checklogin',function(req,res){
 
 
 
- /* router.post("/login", async (req, res) => {
-    var newUser = {};
-    newUser.name = req.body.name;
-    newUser.password = req.body.password;
-    newUser.email = req.body.email;
-  
-    await User.findOne({ name: newUser.name, email:newUser.email})
-      .then(profile => {
-        if (!profile) {
-          res.send("User not exist");
-        } else {
-          if (profile.password == newUser.password) {
-            res.send("User authenticated");
-            res.render('admin') 
-          } else {
-            res.send("User Unauthorized Access");
-          }
-        }
-      })
-      .catch(err => {
-        console.log("Error is ", err.message);
-      });
-  }); */
+ 
 
   router.get("/showusers",function(req,res){
     User.findAllUser(function(err,result){

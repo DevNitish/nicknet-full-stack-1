@@ -21,37 +21,6 @@ router.post("/checkuser",function(req,res){
 })
 
 
-
-
-
-
-/*router.post("/usersignup", async (req, res) => {
-  //console.log("signup page",req.body);
-    var newUser = new User({
-      name: req.body.name,
-      password: req.body.password,
-      email: req.body.email
-    });
-    await User.findOne({ name: newUser.name, email: newUser.email })
-    .then(async profile => {
-      if (!profile) {
-        await newUser
-          .save()
-          .then(() => {
-            res.status(200).send(newUser);
-          })
-          .catch(err => {
-            console.log("Error is ", err.message);
-          });
-      } else {
-        res.send("User already exists...");
-      }
-    })
-    .catch(err => {
-      console.log("Error is", err.message);
-    });
-}); */
-
 router.get("/viewusers",function(req,res){
   User.findAllUser(function(err,result){
     if(err){
