@@ -2,13 +2,44 @@ const express = require("express");
 const router =express.Router();
 const path = require('path');
 const User = require("../model/user");
+const { Console } = require("console");
 
 
 
 
+router.get("/",function(req,res){
+  res.render('login');
+})
+
+router.post('/checklogin',function(req,res){
+  req.body;
+    var mail = req.body.email ;
+    var pass = req.body.password;
+    console.log(mail);
+    console.log(pass);
+    User.findOne({email:req.body.email }).then(function(result){
+          if(result === null){
+              res.status(404).end();
+          }else if(result.email === mail && result.password === pass){
+                 var adminmail = "mail@gmail.com";
+                 var adminpass = "12344";
+                if(result.email === adminmail && result.password === adminpass ){
+                  res.redirect('/admin')
+                  console.log("admin welcome");
+                } 
+                else{
+                  res.send(console.log("welcome"));
+                }
+          } else {
+              res.status(404).end();
+          }
+      }); 
+  }); 
 
 
-  router.post("/login", async (req, res) => {
+
+
+ /* router.post("/login", async (req, res) => {
     var newUser = {};
     newUser.name = req.body.name;
     newUser.password = req.body.password;
@@ -30,7 +61,7 @@ const User = require("../model/user");
       .catch(err => {
         console.log("Error is ", err.message);
       });
-  });
+  }); */
 
   router.get("/showusers",function(req,res){
     User.findAllUser(function(err,result){

@@ -2,7 +2,30 @@ const express = require("express");
 const router =express.Router();
 const path = require('path');
 const User = require("../model/user");
-router.post("/signup", async (req, res) => {
+
+
+router.get("/", function(req,res){
+  res.render('signup.ejs');
+})
+
+
+router.post("/checkuser",function(req,res){
+  User.findOne({email:req.body.email }).then(function(result){
+    if(result == null){
+        res.send(console.log('saved'))
+    } else {
+        res.status(404).end();
+    }
+});
+
+})
+
+
+
+
+
+
+/*router.post("/usersignup", async (req, res) => {
   //console.log("signup page",req.body);
     var newUser = new User({
       name: req.body.name,
@@ -27,7 +50,7 @@ router.post("/signup", async (req, res) => {
     .catch(err => {
       console.log("Error is", err.message);
     });
-});
+}); */
 
 router.get("/viewusers",function(req,res){
   User.findAllUser(function(err,result){

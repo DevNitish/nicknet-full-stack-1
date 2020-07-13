@@ -2,6 +2,13 @@ const express=require('express');
 const router =express.Router();
 const Query= require("../model/querymodel");
 
+
+router.get("/",function(req,res){
+    res.render('contact');
+})
+
+
+
 router.post("/sendquery",function(req,res){
     console.log("query: ",req.body);
     Query.sendQuery( req.body,function(err,result){
