@@ -4,6 +4,10 @@ const path = require('path');
 const User = require("../model/user");
 
 
+
+
+
+
   router.post("/login", async (req, res) => {
     var newUser = {};
     newUser.name = req.body.name;
@@ -17,6 +21,7 @@ const User = require("../model/user");
         } else {
           if (profile.password == newUser.password) {
             res.send("User authenticated");
+            res.render('admin') 
           } else {
             res.send("User Unauthorized Access");
           }

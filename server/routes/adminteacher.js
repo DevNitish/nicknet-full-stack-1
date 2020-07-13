@@ -37,10 +37,10 @@ router.post("/addnewteacher",function(req,res){
     })
 });
 
-router.delete('/deleteTeacher', function(req, res,next) {
-    console.log("here deleteTeacher",req.body);
+router.delete('/deleteTeacher/:id', function(req, res,next) {
+    console.log("here deleteTeacher",req.params.id);
   
-  Teacher.deleteTeacher(req.body._id, function(err, result) {
+  Teacher.deleteTeacher(req.params.id, function(err, result) {
     if (result) {
             console.log("Deleted!");
   

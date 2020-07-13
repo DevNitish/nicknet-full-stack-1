@@ -9,11 +9,7 @@ img.d-block{
 #logoname{
     color: #002856;
 }
-a.nav-item{
-    font-family: "Graphik Web";
- 
-    
-}
+
 #buttonsonly a{
     background-color: #ff540a;
     color: white;
@@ -60,7 +56,7 @@ footer a{
 #jumboheading{
     font-size: 44px;
     font-weight: 700;
-    font-family: "Graphik Web";
+    
 }
 .card-img-top {
     width: 100%;

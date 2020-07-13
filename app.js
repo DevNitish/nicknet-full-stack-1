@@ -12,6 +12,7 @@ const queryRoute=require("./server/routes/query");
 const contactRoute=require("./server/routes/contactus");
 const teachereditRoute=require("./server/routes/adminteacher")
 const coursepageRoute=require("./server/routes/coursepage")
+const adminRoute=require("./server/routes/admin")
 const Course= require("./server/model/coursemodel");
 const User = require("./server/model/user");
 const Teacher=require("./server/model/teachermodel");
@@ -46,7 +47,7 @@ mongoose.connection.once('open' , function(){
 app.use("/admin/signuppage",signupRoute)
 app.use("/admin/loginpage",loginRoute)
 app.use("/",mainRoute)
-app.use("/admin",loginRoute)
+app.use("/admin",adminRoute)
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get("/contactus",function(req,res){

@@ -45,6 +45,7 @@ courseSchema.statics.getAllCourses=function (callback) {
 		_id:courseDetail._id
 	},function(err,data)
 	{		if(!err){
+        data.courseName= courseDetail.courseName;
         data.courseDesc= courseDetail.courseDesc;
         data.coursePrice= courseDetail.coursePrice;
         data.courseDuration= courseDetail.courseDuration;
