@@ -48,14 +48,14 @@ app.use("/admin",adminRoute)
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use("/admin/admincourse",courseRoute)
-app.use("/admin/teacher",teacherRoute)
+// app.use("/admin/teacher",teacherRoute)
 
 
 app.use("/courses", urlencodedParser,coursepageRoute)
 app.use("/contactus", urlencodedParser,contactRoute)
 app.use("/admin/course", urlencodedParser,courseRoute)
 app.use("/admin/query", urlencodedParser,queryRoute)
-app.use("/admin/admin-teacher", urlencodedParser,teachereditRoute)
+app.use("/admin/teacher", urlencodedParser,teachereditRoute)
 app.listen(port,function(){
     console.log("App is running on port ",port);
 })

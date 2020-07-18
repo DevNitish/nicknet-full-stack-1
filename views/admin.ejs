@@ -48,25 +48,24 @@
               <!--editcoursestab-->
             <div class="tab-pane fade show active" id="edit-courses" role="tabpanel" aria-labelledby="nav-ecourses-tab">
                 <div class="row">
-                  <% data.forEach(function(course){ %>
-                    <div  class="col-4">
-                          <div class="card newcourses">
-                              <img src="<%= course.courseBanner %>" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title"><%= course.courseName %></h5>
-                                <a role="button" class="btn btn-block " type="submit"   style="color: white;" data-toggle="modal" data-target="#modal" onclick="setValue('<%= course._id %>')" >Edit</a> 
-                              </div>
-                            </div>
+                    <% data.courses.forEach(function(course){ %>
+                      <div class="card newcourses">
+                          <img src="<%= course.courseBanner %>" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title"><%= course.courseName %></h5>
+                            <a role="button" class="btn btn-block " type="submit"   style="color: white;" data-toggle="modal" data-target="#modal" onclick="setValue('<%= course._id %>')" >Edit</a> 
+                          </div>
                         </div>
-                  <% }); %>
-                    </div>
+                    <% }); %>
+                </div>
             </div>
             <!--editcoursestab END-->
             <!--teachers tab-->
             <div class="tab-pane fade" id="nav-teachers" role="tabpanel" aria-labelledby="nav-teachers-tab">
                 <div class="container borderfortab">
+                  <% data.teachers.forEach(function(teacher){ %>
                   <div class="card my-2">
-                    <h5 class="card-header">Fred Williams</h5>
+                    <h5 class="card-header"><%= teacher.teacherName %></h5>
                     <div class="card-body">
                       <div class="row">
                         <div class="col-lg-4 col-md-4">
@@ -74,52 +73,37 @@
                         </div>
                         <div class="col-lg-8 col-md-8">
                           <ul class="list-group ">
-                            <li class="list-group-item">Username:fredwiil12</li>
-                            <li class="list-group-item">Email Address: fredwiil121@gmail.com</li>
-                            <li class="list-group-item">Salary: 9900</li>
+                            <li class="list-group-item">Username:<%= teacher.teacherName %></li>
+                            <li class="list-group-item">Email Address: <%= teacher.teacherMail %></li>
                           </ul>
                         </div>
                       </div>
                       <a href="#" class="btn btn-sm btn-block " data-toggle="modal" data-target="#modal1">Edit info</a>
                     </div>
                   </div>
+                  <% }); %>
 
                     </div>
                 </div>
             
       
             <!--teachers tab END-->
+            <!-- queries start -->
             <div class="tab-pane fade" id="nav-queries" role="tabpanel" aria-labelledby="nav-queries-tab">
                 <div class="container borderfortab">
+                  <% data.queries.forEach(function(q){ %>
                     <div class="media">
                         <div class="media-body">
-                          <h5 class="mt-0">Esmai_Barry</h5>
-                          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                          <h5 class="mt-0"><%= q.queryUser %></h5>
+                          <%= q.queryDesc %>
+                          <p>By <a href="mailto:<%= q.queryuserMail %>"><%= q.queryuserMail %></a></p>
                         </div>
                       </div>
                       <hr>
-                      <div class="media">
-                        <div class="media-body">
-                          <h5 class="mt-0">Bronwyn_Krause56</h5>
-                          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="media">
-                        <div class="media-body">
-                          <h5 class="mt-0">HarrietPatrick</h5>
-                          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="media">
-                        <div class="media-body">
-                          <h5 class="mt-0">Caris-Hansen22</h5>
-                          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </div>
-                      </div>
+                  <% }); %>
                 </div>
             </div>
+            <!-- queries ends -->
             <div class="tab-pane fade" id="nav-addcourses" role="tabpanel" aria-labelledby="nav-addcourses-tab">
                 <div class="container borderfortab">
                 <form class=" my-2" id="form1">

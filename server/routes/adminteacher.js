@@ -18,7 +18,8 @@ router.get("/getallteachers",function(req,res){
         if(err){
             res.status(400).send('Users not found!');
         }else{
-            res.send(result);
+            // res.send(result);
+            res.render('test' , {tdata:result})
             console.log(result);
         }
     })
