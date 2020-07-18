@@ -1,127 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="CSS/style1.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-</head>
-<body>
-        <div class="container-fluid">
-            <!--NAVBAR-->
-            <nav class="navbar navbar-expand-lg bg-light navbar-light"  >
-                <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="35" height="35" class="d-inline-block align-top" alt="" loading="lazy">&nbsp;<span id="logoname" >Nicknet Online Learning</span></a>
-                <button class="navbar-toggler" type="button "  data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                  <div class="navbar-nav" >
-                    <a class="nav-item nav-link active" href="/" style="color: #002856;">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="/courses" style="color: #002856;">Courses</a>
-                    <a class="nav-item nav-link" href="#" style="color: #002856;">Contact Us</a>
-                  </div>
-                </div>
-              </nav>
-          </div>
-          <!--jumbtron-->
-          <div class="container">
-            <div class="jumbotron jumbotron-fluid bg-light text-dark my-2">
-              <div class="container text-dark" >
-                <h1 class="display-3 ">Contact Us</h1>
-                <p class="lead">Fill in the form below if you have any problem with the webiste, we will contact as soon as possible!</p>
-              </div>
+<%- include('partials/nav'); %>
+<!--jumbtron-->
+<div class="container">
+  <div class="jumbotron jumbotron-fluid bg-light text-dark my-2">
+    <div class="container text-light">
+      <h1 class="display-3 ">Contact Us</h1>
+      <p class="lead">Fill in the form below if you have any problem with the webiste, we will contact as soon as
+        possible!</p>
+    </div>
+  </div>
+  <!--FORM-->
+  <div class="row">
+    <div class="col-8">
+      <h5 class="font-weight-bold text-center  px-3 mx-0 bg-light text-dark">Fill in the details below!</h4>
+        <form>
+          <div class="form-group row">
+            <div class="col-4">
+              <label for="queryuserMail" class="col-2 col-form-label">Email</label>
             </div>
-            <!--FORM-->
-              <div class="row">
-                <div class="col-8">
-                  <h5 class="font-weight-bold text-center  px-3 mx-0 bg-light text-dark">Fill in the details below!</h4>
-                    <form >
-                     <div class="form-group row">
-                      <div class="col-4">
-                        <label for="queryuserMail" class="col-2 col-form-label">Email</label>
-                      </div>
-                       <div class="col-8">
-                         <input type="email" class="form-control" id="queryuserMail" required/>
-                       </div>
-                     </div>
-                     <div class="form-group row">
-                      <div class="col-4">
-                        <label for="queryUser" class="col-2 col-form-label">Name</label>
-                      </div>
-                       <div class="col-8">
-                         <input type="text" class="form-control" id="queryUser" required/>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="col-4">
-                          <label for="queryDesc" class="col-2 col-form-label" >Query</label>
-                        </div>
-                        <div class="col-8">
-                          <textarea class="form-control" rows="2" id="queryDesc" required></textarea>
-                        </div>
-                      </div>
-                     <div class="form-group row">
-                       <div class="col-4"></div>
-                       <div class="col-8">
-                         <button type="submit" class="btn btn-primary ">Submit</button>
-                       </div>
-                     </div>
-                   </form>
-                  </div>
-                <div class="col">
-                  
-                </div>
-                <div class="col">
-        
-                </div>
-        
-              </div>
-
-              <div class="alert alert-success"  id="alert1" role="alert">
-                Thanks for contacting us! we'll reply you in no time.
-              </div>
-              <!-- Main row-->
-        
-            
-          </div>
-          <!--FOOTER-->
-          <footer>
-            <nav class="navbar bg-light">
-              <div class="container">
-              <!-- Links -->
-              <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="80" height="80" class="d-inline" alt="" loading="lazy">&nbsp;<span  id="logoname" >Nicknet Online Learning &nbsp;</span></a>
-           
-              <ul class="navbar-nav mx-5 my-5 mr-auto ">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Courses</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contact Us</a>
-                </li>
-              </ul>
-              <div class="row">
-                <p class="text-muted ">&copy;Nicknet Online Learning</p>
-              </div>
+            <div class="col-8">
+              <input type="email" class="form-control" id="queryuserMail" required />
             </div>
-            </nav>
-          </footer>
-          <!-- Optional JavaScript -->
-          <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-</body>
-<script src="js/code.js"></script>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+          </div>
+          <div class="form-group row">
+            <div class="col-4">
+              <label for="queryUser" class="col-2 col-form-label">Name</label>
+            </div>
+            <div class="col-8">
+              <input type="text" class="form-control" id="queryUser" required />
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-4">
+              <label for="queryDesc" class="col-2 col-form-label">Query</label>
+            </div>
+            <div class="col-8">
+              <textarea class="form-control" rows="2" id="queryDesc" required></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-4"></div>
+            <div class="col-8">
+              <button type="submit" style="width: 100%;" class="btn btn-primary ">Submit</button>
+            </div>
+          </div>
+        </form>
+    </div>
+  </div>
+  
+  <div class="alert alert-success" id="alert1" role="alert">
+    Thanks for contacting us! we'll reply you in no time.
+  </div>
+  <!-- Main row-->
+  
+</div>
+<br>
+<br>
+<br>
+<br>
+<%- include('partials/footer'); %>
 <script src="./js/queryrequest.js"></script>
+</body>
 </html>

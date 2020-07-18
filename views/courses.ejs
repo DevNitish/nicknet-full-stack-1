@@ -1,117 +1,64 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<%- include('partials/nav'); %>
+<div class="container">
+  <div class="jumbotron jumbotron-fluid rounded my-3 text-white">
+    <div class="container">
+      <h1 class="display-4 mx-3" id="jumboheading">Choose from our <br>variety of courses!</h1>
+      <p class="lead mx-3">Learn to your heart's content.</p>
+    </div>
+  </div>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./CSS/style.css" >
-    <title>Courses|Nicknet Online Learning</title>
-  </head>
-  <body>
-    <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg bg-light navbar-light"  >
-        <a class="navbar-brand" href="/"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="35" height="35" class="d-inline-block align-top" alt="" loading="lazy">&nbsp;<span id="logoname" ">Nicknet Online Learning</span></a>
-        <button class="navbar-toggler" type="button "  data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav" >
-            <a class="nav-item nav-link active" href="/" style="color: #002856;">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#" style="color: #002856;">Courses</a>
-            <a class="nav-item nav-link" href="/contactus" style="color: #002856;">Contact Us</a>
-          </div>
-        </div>
-      </nav>
-      <div class="container">
-        <div class="jumbotron jumbotron-fluid rounded my-3 text-white">
-            <div class="container">
-              <h1 class="display-4 mx-3" id="jumboheading">Choose from our <br>variety of courses!</h1>
-              <p class="lead mx-3">Learn to your heart's content.</p>
-            </div>
-          </div>
-          
-          <div class="row">
-            <p  class="my-3" style=" color: #002856; font-size: 23px; font-weight: bold; margin-left: 20px;">Newly Added Courses</p>
-        </div>
-        
-        <!--experiment-->
-        <div class="container">
+  <div class="row">
+    <p class="my-3" style=" color: #002856; font-size: 23px; font-weight: bold; margin-left: 20px;">Newly Added Courses
+    </p>
+  </div>
 
-          <div class="row">
-            <% data.forEach(function(course){ %>
-                <div class="card newcourses">
-                  <img src="<%= course.courseBanner %>" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><%= course.courseName %></h5>
-                    <p class="card-text" ><strong class="text-muted"><%= course.courseTeacher %></strong></p>
-                    <a role="button" class="btn btn-sm my-2  align-self-end" type="submit" href="/signup" style="color: white;">Enroll now</a>
-                    <a role="button" class="btn btn-sm  my-2 " type="submit" data-toggle="modal" data-target="#exampleModal5" onclick="getModel('<%= course.courseName %>','<%= course.courseDesc %>','<%= course.courseDuration %>','<%= course.coursePrice %>','<%= course.courseBanner %>')" style="color: white;">Read more</a>
-                  </div>
-                </div>
-              <% }); %>
-            </div>
-          </div>
-            <!--Cards-->
-        <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <img id="modelImage"
-              class="modal-img">
-            <p id="modelDesc"> </p>
-            <p class="text-muted text-center" id="modelDuration"><strong></strong></p>
-            <p class="text-muted text-center" id="modelPrice"><strong></strong></p>
-          </div> 
-          <div class="modal-footer">
-            <a type="button" class="btn " style=" color: white;" data-dismiss="modal">Close</a>
-            <a type="button" class="btn " style=" color: white;" href="/signup">Enroll Now!</a>
-          </div>
+  <!--experiment-->
+  <div class="container">
+
+    <div class="row">
+      <% data.forEach(function(course){ %>
+      <div class="card newcourses">
+        <img src="<%= course.courseBanner %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= course.courseName %></h5>
+          <p class="card-text"><strong class="text-muted"><%= course.courseTeacher %></strong></p>
+          <a role="button" class="btn btn-sm my-2  align-self-end" type="submit" href="/signup"
+            style="color: white;">Enroll now</a>
+          <a role="button" class="btn btn-sm  my-2 " type="submit" data-toggle="modal" data-target="#exampleModal5"
+            onclick="getModel('<%= course.courseName %>','<%= course.courseDesc %>','<%= course.courseDuration %>','<%= course.coursePrice %>','<%= course.courseBanner %>')"
+            style="color: white;">Read more</a>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+  <!--Cards-->
+  <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img id="modelImage" class="modal-img">
+          <p id="modelDesc"> </p>
+          <p class="text-muted text-center" id="modelDuration"><strong></strong></p>
+          <p class="text-muted text-center" id="modelPrice"><strong></strong></p>
+        </div>
+        <div class="modal-footer">
+          <a type="button" class="btn " style=" color: white;" data-dismiss="modal">Close</a>
+          <a type="button" class="btn " style=" color: white;" href="/signup">Enroll Now!</a>
         </div>
       </div>
     </div>
-    <!--card end-->
-      </div>
-           <!--FOOTER-->
-  <footer>
-    <nav class="navbar bg-light">
-      <div class="container">
-      <!-- Links -->
-      <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="80" height="80" class="d-inline" alt="" loading="lazy">&nbsp;<span  id="logoname" >Nicknet Online Learning &nbsp;</span></a>
-   
-      <ul class="navbar-nav mx-5 my-5 mr-auto ">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Courses</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contactus">Contact Us</a>
-        </li>
-      </ul>
-      <div class="row">
-        <p class="text-muted ">&copy;Nicknet Online Learning</p>
-      </div>
-    </div>
-    </nav>
-  </footer>
-
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <!-- Optional JavaScript -->
-    <script src="./js/myscript.js"></script>
-  </body>
+  </div>
+  <!--card end-->
+</div>
+<%- include('partials/footer'); %>
+<script src="./js/myscript.js"></script>
+</body>
 </html>

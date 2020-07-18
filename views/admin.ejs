@@ -1,275 +1,229 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<%- include('partials/nav'); %>
+<div class="container">
+  <!--JUMBOTRON-->
+  <div class="jumbotron jumbotron-fluid rounded my-3 text-white">
+    <div class="container">
+      <h1 class="display-4 mx-3" id="jumboheading">Welcome User</h1>
+      <p class="lead mx-3">Make sure you double check what you change or add here!</p>
+    </div>
+  </div>
+  <!--TABS-->
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="./CSS/style.css">
-    <title>Admin|Nicknet Online Learning</title>
-  </head>
-  <body>
-    <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg bg-light navbar-light"  >
-        <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="35" height="35" class="d-inline-block align-top" alt="" loading="lazy">&nbsp;<span id="logoname" >Nicknet Online Learning</span></a>
-        <button class="navbar-toggler" type="button "  data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav" >
-            <a class="nav-item nav-link active" href="/" style="color: #002856;">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="/courses" style="color: #002856;">Courses</a>
-            <a class="nav-item nav-link" href="/contactus" style="color: #002856;">Contact Us</a>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-ecourses-tab" data-toggle="tab" href="#edit-courses" role="tab"
+        aria-controls="nav-ecourses" aria-selected="true">Edit Courses</a>
+      <a class="nav-item nav-link" id="nav-teachers-tab" data-toggle="tab" href="#nav-teachers" role="tab"
+        aria-controls="nav-teachers" aria-selected="false">Teachers</a>
+      <a class="nav-item nav-link" id="nav-queries-tab" data-toggle="tab" href="#nav-queries" role="tab"
+        aria-controls="nav-contact" aria-selected="false">Queries</a>
+      <a class="nav-item nav-link" id="nav-addcourses-tab" data-toggle="tab" href="#nav-addcourses" role="tab"
+        aria-controls="nav-contact" aria-selected="false">Add New Courses</a>
+    </div>
+  </nav>
+  <!--TAB CONTENT-->
+  <div class="tab-content" id="nav-tabContent">
+    <!--editcoursestab-->
+    <div class="tab-pane fade show active" id="edit-courses" role="tabpanel" aria-labelledby="nav-ecourses-tab">
+      <div class="row">
+        <% data.courses.forEach(function(course){ %>
+        <div class="card newcourses">
+          <img src="<%= course.courseBanner %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= course.courseName %></h5>
+            <a role="button" class="btn btn-block " type="submit" style="color: white;" data-toggle="modal"
+              data-target="#modal" onclick="setValue('<%= course._id %>')">Edit</a>
           </div>
         </div>
-      </nav>
-      <div class="container">
-          <!--JUMBOTRON-->
-          <div class="jumbotron jumbotron-fluid rounded my-3 text-white">
-            <div class="container">
-              <h1 class="display-4 mx-3" id="jumboheading">Welcome User</h1>
-              <p class="lead mx-3">Make sure you double check what you change or add here!</p>
-            </div>
-          </div>
-          <!--TABS-->
-          
-          <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-ecourses-tab" data-toggle="tab" href="#edit-courses" role="tab" aria-controls="nav-ecourses" aria-selected="true">Edit Courses</a>
-              <a class="nav-item nav-link" id="nav-teachers-tab" data-toggle="tab" href="#nav-teachers" role="tab" aria-controls="nav-teachers" aria-selected="false">Teachers</a>
-              <a class="nav-item nav-link" id="nav-queries-tab" data-toggle="tab" href="#nav-queries" role="tab" aria-controls="nav-contact" aria-selected="false">Queries</a>
-              <a class="nav-item nav-link" id="nav-addcourses-tab" data-toggle="tab" href="#nav-addcourses" role="tab" aria-controls="nav-contact" aria-selected="false">Add New Courses</a>
-            </div>
-          </nav>
-          <!--TAB CONTENT-->
-          <div class="tab-content" id="nav-tabContent">
-              <!--editcoursestab-->
-            <div class="tab-pane fade show active" id="edit-courses" role="tabpanel" aria-labelledby="nav-ecourses-tab">
-                <div class="row">
-                    <% data.courses.forEach(function(course){ %>
-                      <div class="card newcourses">
-                          <img src="<%= course.courseBanner %>" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title"><%= course.courseName %></h5>
-                            <a role="button" class="btn btn-block " type="submit"   style="color: white;" data-toggle="modal" data-target="#modal" onclick="setValue('<%= course._id %>')" >Edit</a> 
-                          </div>
-                        </div>
-                    <% }); %>
-                </div>
-            </div>
-            <!--editcoursestab END-->
-            <!--teachers tab-->
-            <div class="tab-pane fade" id="nav-teachers" role="tabpanel" aria-labelledby="nav-teachers-tab">
-                <div class="container borderfortab">
-                  <% data.teachers.forEach(function(teacher){ %>
-                  <div class="card my-2">
-                    <h5 class="card-header"><%= teacher.teacherName %></h5>
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-lg-4 col-md-4">
-                          <img class="tabcardimg" src="https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg">
-                        </div>
-                        <div class="col-lg-8 col-md-8">
-                          <ul class="list-group ">
-                            <li class="list-group-item">Username:<%= teacher.teacherName %></li>
-                            <li class="list-group-item">Email Address: <%= teacher.teacherMail %></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <a href="#" class="btn btn-sm btn-block " data-toggle="modal" data-target="#modal1">Edit info</a>
-                    </div>
-                  </div>
-                  <% }); %>
-
-                    </div>
-                </div>
-            
-      
-            <!--teachers tab END-->
-            <!-- queries start -->
-            <div class="tab-pane fade" id="nav-queries" role="tabpanel" aria-labelledby="nav-queries-tab">
-                <div class="container borderfortab">
-                  <% data.queries.forEach(function(q){ %>
-                    <div class="media">
-                        <div class="media-body">
-                          <h5 class="mt-0"><%= q.queryUser %></h5>
-                          <%= q.queryDesc %>
-                          <p>By <a href="mailto:<%= q.queryuserMail %>"><%= q.queryuserMail %></a></p>
-                        </div>
-                      </div>
-                      <hr>
-                  <% }); %>
-                </div>
-            </div>
-            <!-- queries ends -->
-            <div class="tab-pane fade" id="nav-addcourses" role="tabpanel" aria-labelledby="nav-addcourses-tab">
-                <div class="container borderfortab">
-                <form class=" my-2" id="form1">
-                    <div class="form-row">
-                      <div class="form-group col-md-6 ">
-                        <label for="courseName" >Course Name</label>
-                        <input type="text" class="form-control" id="courseName" placeholder="Course Name(Not more than 60 words)" required/>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="courseDuration">Course Duration</label>
-                        <input type="number" class="form-control " id="courseDuration" placeholder="Course Duration(in Hours)" required/>
-                      </div>
-                    </div>
-                    <div class="form-group col-md-8">
-                        <label for="courseDesc">Course Description</label>
-                        <textarea class="form-control" id="courseDesc" rows="3" placeholder="Course Description(not more than 500 words)" required></textarea>
-                      </div>
-                      <div class="form-group col-md-4 ">
-                        <label for="coursePrice" class="">Course Price</label>
-                        <input type="number" class="form-control " id="coursePrice" required/>
-                      </div>
-                      <div class="form-group col-md-4 ">
-                        <label for="courseBanner" class="">Course Banner(enter image url)</label>
-                        <input type="text" class="form-control " id="courseBanner" required/>
-                      </div>
-                      <div class="form-group col-md-4 ">
-                        <label for="courseTeacher" class="">Teacher's Name</label>
-                        <input type="text" class="form-control " id="courseTeacher" required/>
-                      </div>
-
-                   
- 
-                    <div class="form-group my-4">
-                      <div class="form-check">
-                        <input class="form-check-input " type="checkbox" id="gridCheck" required/>
-                        <label class="form-check-label " for="gridCheck">
-                          check me if you've filled the course creation form carefully!
-                        </label>
-                      </div>
-                    </div>
-                      
-                    <a type="submit" class="btn" style="color: white;" onclick="saveData()">Add course</a>
-               
-                
-               
-                  </form>
-                  <div class="alert alert-success" role="alert" id="alert1">
-                    your course has been added successfully!
-                  </div>
-                </div>
-            </div>
-        </div>
-        <!--Modals-->
-        <div class="modal" tabindex="-1"  id='modal' role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Edit Info</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+        <% }); %>
+      </div>
+    </div>
+    <!--editcoursestab END-->
+    <!--teachers tab-->
+    <div class="tab-pane fade" id="nav-teachers" role="tabpanel" aria-labelledby="nav-teachers-tab">
+      <div class="container borderfortab">
+        <% data.teachers.forEach(function(teacher){ %>
+        <div class="card my-2">
+          <h5 class="card-header"><%= teacher.teacherName %></h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-4 col-md-4">
+                <img class="tabcardimg"
+                  src="https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg">
               </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                    <label for="course-name" class="col-form-label">Course Name:</label>
-                    <input type="text" class="form-control" id="course-name">
-                  </div>
-                  <div class="form-group">
-                    <label for="course-price" class="col-form-label">Course Price:</label>
-                    <input type="number" class="form-control" id="course-price">
-                  </div>
-                  <div class="form-group">
-                    <label for="course-duration" class="col-form-label">Course Duration(in hours):</label>
-                    <input type="text" class="form-control" id="course-duration">
-                  </div>
-                  <div class="form-group">
-                    <label for="course-banner" class="col-form-label">Course Banner URL:</label>
-                    <input type="text" class="form-control" id="course-banner">
-                  </div>
-                  <div class="form-group">
-                    <label for="message-text" class="col-form-label">Description:</label>
-                    <textarea class="form-control" id="message-text"></textarea>
-                  </div>
-                  
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn " data-dismiss="modal">Close</button>
-                <button type="button" class="btn " onclick="updateallData()">Save changes</button>
+              <div class="col-lg-8 col-md-8">
+                <ul class="list-group ">
+                  <li class="list-group-item">Username:<%= teacher.teacherName %></li>
+                  <li class="list-group-item">Email Address: <%= teacher.teacherMail %></li>
+                </ul>
               </div>
             </div>
+            <a href="#" class="btn btn-sm btn-block " data-toggle="modal" data-target="#modal1">Edit info</a>
           </div>
         </div>
-        <!--2nd modal-->
-        <div class="modal" tabindex="-1"  id='modal1' role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Edit Info</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                    <label for="teacher-name" class="col-form-label">Username:</label>
-                    <input type="text" class="form-control" id="teacher-name">
-                  </div>
-                  <div class="form-group">
-                    <label for="teacher-mail" class="col-form-label">Email Address:</label>
-                    <input type="text" class="form-control" id="teacher-mail">
-                  </div>
-                  <div class="form-group">
-                    <label for="teacher-pass" class="col-form-label">Password:</label>
-                    <input type="text" class="form-control" id="teacher-pass">
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="teacher-salary" class="col-form-label">Salary:</label>
-                    <input type="number" class="form-control" id="teacher-salary" disabled>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn " data-dismiss="modal">Close</button>
-                <button type="button" class="btn ">Save changes</button>
-              </div>
-            </div>
+        <% }); %>
+
+      </div>
+    </div>
+
+
+    <!--teachers tab END-->
+    <!-- queries start -->
+    <div class="tab-pane fade" id="nav-queries" role="tabpanel" aria-labelledby="nav-queries-tab">
+      <div class="container borderfortab">
+        <% data.queries.forEach(function(q){ %>
+        <div class="media">
+          <div class="media-body">
+            <h5 class="mt-0"><%= q.queryUser %></h5>
+            <%= q.queryDesc %>
+            <p>By <a href="mailto:<%= q.queryuserMail %>"><%= q.queryuserMail %></a></p>
           </div>
         </div>
-        <!--Modals END-->
-        <p id="courseId" style="display: none;" ></p>
-          </div>
-          <footer>
-            <nav class="navbar bg-light">
-              <div class="container">
-              <!-- Links -->
-              <a class="navbar-brand" href="#"><img src="http://nicknetvideos.herokuapp.com/nicknet.svg" width="80" height="80" class="d-inline" alt="" loading="lazy">&nbsp;<span  id="logoname" >Nicknet Online Learning &nbsp;</span></a>
-           
-              <ul class="navbar-nav mx-5 my-5 mr-auto ">
-                <li class="nav-item">
-                  <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/courses">Courses</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/contactus">Contact Us</a>
-                </li>
-              </ul>
-              <div class="row">
-                <p class="text-muted ">&copy;Nicknet Online Learning</p>
-              </div>
+        <hr>
+        <% }); %>
+      </div>
+    </div>
+    <!-- queries ends -->
+    <div class="tab-pane fade" id="nav-addcourses" role="tabpanel" aria-labelledby="nav-addcourses-tab">
+      <div class="container borderfortab">
+        <form class=" my-2" id="form1">
+          <div class="form-row">
+            <div class="form-group col-md-6 ">
+              <label for="courseName">Course Name</label>
+              <input type="text" class="form-control" id="courseName" placeholder="Course Name(Not more than 60 words)"
+                required />
             </div>
-            </nav>
-          </footer>
-          
-      
+            <div class="form-group col-md-4">
+              <label for="courseDuration">Course Duration</label>
+              <input type="number" class="form-control " id="courseDuration" placeholder="Course Duration(in Hours)"
+                required />
+            </div>
+          </div>
+          <div class="form-group col-md-8">
+            <label for="courseDesc">Course Description</label>
+            <textarea class="form-control" id="courseDesc" rows="3"
+              placeholder="Course Description(not more than 500 words)" required></textarea>
+          </div>
+          <div class="form-group col-md-4 ">
+            <label for="coursePrice" class="">Course Price</label>
+            <input type="number" class="form-control " id="coursePrice" required />
+          </div>
+          <div class="form-group col-md-4 ">
+            <label for="courseBanner" class="">Course Banner(enter image url)</label>
+            <input type="text" class="form-control " id="courseBanner" required />
+          </div>
+          <div class="form-group col-md-4 ">
+            <label for="courseTeacher" class="">Teacher's Name</label>
+            <input type="text" class="form-control " id="courseTeacher" required />
+          </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="./js/adminrequest.js"></script>
-  </body>
+
+
+          <div class="form-group my-4">
+            <div class="form-check">
+              <input class="form-check-input " type="checkbox" id="gridCheck" required />
+              <label class="form-check-label " for="gridCheck">
+                check me if you've filled the course creation form carefully!
+              </label>
+            </div>
+          </div>
+
+          <a type="submit" class="btn" style="color: white;" onclick="saveData()">Add course</a>
+
+
+
+        </form>
+        <div class="alert alert-success" role="alert" id="alert1">
+          your course has been added successfully!
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Modals-->
+  <div class="modal" tabindex="-1" id='modal' role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Info</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="course-name" class="col-form-label">Course Name:</label>
+              <input type="text" class="form-control" id="course-name">
+            </div>
+            <div class="form-group">
+              <label for="course-price" class="col-form-label">Course Price:</label>
+              <input type="number" class="form-control" id="course-price">
+            </div>
+            <div class="form-group">
+              <label for="course-duration" class="col-form-label">Course Duration(in hours):</label>
+              <input type="text" class="form-control" id="course-duration">
+            </div>
+            <div class="form-group">
+              <label for="course-banner" class="col-form-label">Course Banner URL:</label>
+              <input type="text" class="form-control" id="course-banner">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Description:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn " data-dismiss="modal">Close</button>
+          <button type="button" class="btn " onclick="updateallData()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--2nd modal-->
+  <div class="modal" tabindex="-1" id='modal1' role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Info</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="teacher-name" class="col-form-label">Username:</label>
+              <input type="text" class="form-control" id="teacher-name">
+            </div>
+            <div class="form-group">
+              <label for="teacher-mail" class="col-form-label">Email Address:</label>
+              <input type="text" class="form-control" id="teacher-mail">
+            </div>
+            <div class="form-group">
+              <label for="teacher-pass" class="col-form-label">Password:</label>
+              <input type="text" class="form-control" id="teacher-pass">
+            </div>
+
+            <div class="form-group">
+              <label for="teacher-salary" class="col-form-label">Salary:</label>
+              <input type="number" class="form-control" id="teacher-salary" disabled>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn " data-dismiss="modal">Close</button>
+          <button type="button" class="btn ">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Modals END-->
+  <p id="courseId" style="display: none;"></p>
+</div>
+<%- include('partials/footer'); %>
+
+<script src="./js/adminrequest.js"></script>
+</body>
 </html>
