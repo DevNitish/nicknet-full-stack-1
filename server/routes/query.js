@@ -14,4 +14,21 @@ router.get("/viewqueries",function(req,res){
     })
 });
 
+router.delete('/deleteQuery', function(req, res,next) {
+    console.log("here deleteQuery",req.body);
+  
+  Query.deleteQuery(req.body._id, function(err, result) {
+    if (result) {
+            console.log("Deleted!");
+  
+      res.send(result);
+        
+    } else {
+      console.log("Error");
+       
+      res.status(500).send('Internal error occurred--500');
+    }
+  });
+  });
+
 module.exports = router;
