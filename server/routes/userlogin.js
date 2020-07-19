@@ -7,9 +7,9 @@ const { Console } = require("console");
 
 
 
-router.get("/",function(req,res){
-  res.render('login');
-})
+// router.get("/",function(req,res){
+//   res.render('login');
+// })
 
 router.post('/checklogin',function(req,res){
   req.body;

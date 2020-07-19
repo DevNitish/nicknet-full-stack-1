@@ -39,6 +39,18 @@ userSchema.statics.findOneUser=function(userId,callback){
         }
     })
 }
+userSchema.statics.findUserByEmail=function(email,callback){
+    console.log('in model email',email);
+    this.findOne({
+        email:email
+    },function(err,data){
+        if(err){
+            callback(err,null);
+        }else{
+            callback(null,data);
+        }
+    })
+}
 userSchema.statics.editUser=function(userDetail, callback)
 {
 	this.findOne({
@@ -92,4 +104,14 @@ userSchema.statics.deleteUser=function(userId, callback)
 };
 const user=mongoose.model('users',userSchema);
 
+
+// user.saveUser({
+//     name:"Nitish",
+//     email:"nitish@gmail.com",
+//     password:"pass"
+// },(err,data)=>{
+//     if(!err){
+//         console.log("USer created ",data)
+//     }
+// })
 module.exports=user;

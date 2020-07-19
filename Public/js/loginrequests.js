@@ -1,21 +1,21 @@
 function checkData(obj){
     $.ajax({
         type:"POST",
-        url:"http://localhost:8080/login/checklogin",
+        url:"/login",
         data:obj,
         success:function(response){
-            console.log('response',response);
+            console.log('response success',response);
+            window.location.replace("http://localhost:8080/admin");
             alertSuccess()
         },
-        error: function (){
-            console.log("mail exists")
+        error: function (e){
+            console.log("Err ",e)
             showError();
         }
     })
 }
 function showError(){
     $("#alert1").show();
-    $("#email").val("");
     setTimeout(function(){
         $("#alert1").hide();
     }, 2000);
@@ -44,7 +44,7 @@ $(document).ready(function(){
         var password = document.getElementById("password").value;
         
         let obj={
-            "email" : email,
+            "username" : email,
             "password": password,
             
         }
