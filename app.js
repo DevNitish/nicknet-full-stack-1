@@ -5,25 +5,23 @@ const path=require("path");
 const config= require("./dev.json");
 const mainRoute=require("./server/routes/index");
 const courseRoute=require("./server/routes/course");
-const loginRoute=require("./server/routes/userlogin");
 const signupRoute=require("./server/routes/usersignup");
-const teacherRoute=require("./server/routes/teacher");
 const queryRoute=require("./server/routes/query");
 const contactRoute=require("./server/routes/contactus");
 const teachereditRoute=require("./server/routes/adminteacher")
 const coursepageRoute=require("./server/routes/coursepage")
 const adminRoute=require("./server/routes/admin")
-const Course= require("./server/model/coursemodel");
 const User = require("./server/model/user");
-const Teacher=require("./server/model/teachermodel");
 const app=express();
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
 var port=process.env.PORT || 8080;
 
 mongoose.set('useCreateIndex', true);
-//login
+//login example
 //https://github.com/passport/express-4.x-local-example
+
+
 // Configure the local strategy for use by Passport.
 //
 // The local strategy require a `verify` function which receives the credentials
@@ -103,6 +101,7 @@ app.post('/login',passport.authenticate('local'),  function(req, res) {
 // `req.user` contains the authenticated user.
 // res.redirect('/users/' + req.user.username);
     res.send({data:"valid user"});
+    // res.redirect('/admin');
 });
 
 
@@ -115,11 +114,12 @@ app.post('/login',passport.authenticate('local'),  function(req, res) {
  app.get('/logout',
   function(req, res){
     req.logout();
-    res.redirect('/');
+    res.redirect('/login');
   });
+
 app.use("/",mainRoute)
+
 app.use("/admin",
-// passport.authenticate('local', { session: false }),
 require('connect-ensure-login').ensureLoggedIn(),
 adminRoute)
 app.use(express.static(path.join(__dirname, 'public')))

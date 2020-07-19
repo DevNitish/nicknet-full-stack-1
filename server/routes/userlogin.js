@@ -5,34 +5,6 @@ const User = require("../model/user");
 const { Console } = require("console");
 
 
-
-
-// router.get("/",function(req,res){
-//   res.render('login');
-// })
-
-router.post('/checklogin',function(req,res){
-  req.body;
-    var mail = req.body.email ;
-    var pass = req.body.password;
-    console.log(mail);
-    console.log(pass);
-    User.findOne({email:req.body.email }).then(function(result){
-          if(result === null){
-              res.status(404).end();
-          }else if(result.email === mail && result.password === pass){
-                  res.send(console.log("welcome"));
-          } else {
-              res.status(404).end();
-          }
-      }); 
-  }); 
-
-
-
-
- 
-
   router.get("/showusers",function(req,res){
     User.findAllUser(function(err,result){
       if(err){

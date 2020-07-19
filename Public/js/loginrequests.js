@@ -5,7 +5,7 @@ function checkData(obj){
         data:obj,
         success:function(response){
             console.log('response success',response);
-            window.location.replace("http://localhost:8080/admin");
+            window.location.replace("/admin");
             alertSuccess()
         },
         error: function (e){
