@@ -35,6 +35,16 @@ querySchema.statics.sendQuery=function (queryInfo,callback) {
     }) 
   }
 
+  querySchema.statics.deleteQuery=function(queryId, callback)
+{		console.log("deleteQuery id",queryId);
+	this.findOne({
+		_id:queryId
+    
+	}).remove( ).exec();
+	callback(null, 'Deleted');
+     
+};
+
 const query = mongoose.model('queries', querySchema);
 module.exports=query;
   
