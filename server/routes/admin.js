@@ -21,6 +21,7 @@ router.get("/", function (req, res) {
           if (err) {
             res.status(400).send('courses not found!');
           } else {
+            console.log(result);
               data.teachers=result
               //call queries
               Query.displayQuery(function (err, result) {

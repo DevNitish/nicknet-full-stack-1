@@ -32,7 +32,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= course.courseName %></h5>
             <a role="button" class="btn btn-block " type="submit" style="color: white;" data-toggle="modal"
-              data-target="#modal" onclick="setValue('<%= course._id %>')">Edit</a>
+              data-target="#modal" onclick="setValue('<%= course._id %>','<%= course.courseName %>','<%= course.courseDesc %>','<%= course.courseDuration %>','<%= course.coursePrice %>','<%= course.courseBanner %>')">Edit</a>
           </div>
         </div>
         <% }); %>
@@ -58,7 +58,7 @@
                 </ul>
               </div>
             </div>
-            <a href="#" class="btn btn-sm btn-block " data-toggle="modal" data-target="#modal1">Edit info</a>
+            <a  class="btn btn-sm btn-block " data-toggle="modal" data-target="#modal1" style="color: white;" onclick="setteacherId('<%= teacher._id %>','<%= teacher.teacherName %>','<%= teacher.teacherMail %>','<%= teacher.teacherPass %>','<%= teacher.teacherSalary %>')" >Edit info</a>
           </div>
         </div>
         <% }); %>
@@ -88,50 +88,37 @@
       <div class="container borderfortab">
         <form class=" my-2" id="form1">
           <div class="form-row">
-            <div class="form-group col-md-6 ">
+            <div class="form-group col">
               <label for="courseName">Course Name</label>
               <input type="text" class="form-control" id="courseName" placeholder="Course Name(Not more than 60 words)"
-                required />
+                required>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col">
               <label for="courseDuration">Course Duration</label>
               <input type="number" class="form-control " id="courseDuration" placeholder="Course Duration(in Hours)"
-                required />
+                required>
             </div>
           </div>
-          <div class="form-group col-md-8">
+          <div class="form-group ">
             <label for="courseDesc">Course Description</label>
             <textarea class="form-control" id="courseDesc" rows="3"
               placeholder="Course Description(not more than 500 words)" required></textarea>
           </div>
-          <div class="form-group col-md-4 ">
-            <label for="coursePrice" class="">Course Price</label>
-            <input type="number" class="form-control " id="coursePrice" required />
-          </div>
-          <div class="form-group col-md-4 ">
-            <label for="courseBanner" class="">Course Banner(enter image url)</label>
-            <input type="text" class="form-control " id="courseBanner" required />
-          </div>
-          <div class="form-group col-md-4 ">
-            <label for="courseTeacher" class="">Teacher's Name</label>
-            <input type="text" class="form-control " id="courseTeacher" required />
-          </div>
-
-
-
-          <div class="form-group my-4">
-            <div class="form-check">
-              <input class="form-check-input " type="checkbox" id="gridCheck" required />
-              <label class="form-check-label " for="gridCheck">
-                check me if you've filled the course creation form carefully!
-              </label>
+          <div class="form-row">
+            <div class="form-group col ">
+              <label for="coursePrice" class="">Course Price</label>
+              <input type="number" class="form-control " id="coursePrice" required>
             </div>
+            <div class="form-group col ">
+              <label for="courseTeacher" class="">Teacher's Name</label>
+              <input type="text" class="form-control " id="courseTeacher" required>
+            </div>
+          </div>   
+          <div class="form-group  ">
+            <label for="courseBanner" class="">Course Banner(enter image url)</label>
+            <input type="text" class="form-control " id="courseBanner" required>
           </div>
-
-          <a type="submit" class="btn" style="color: white;" onclick="saveData()">Add course</a>
-
-
-
+          <button type="submit" class="btn" style="color: white;" >Add course</button>
         </form>
         <div class="alert alert-success" role="alert" id="alert1">
           your course has been added successfully!
@@ -150,33 +137,35 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form id="form2">
             <div class="form-group">
               <label for="course-name" class="col-form-label">Course Name:</label>
-              <input type="text" class="form-control" id="course-name">
+              <input type="text" class="form-control" id="course-name" required>
             </div>
             <div class="form-group">
               <label for="course-price" class="col-form-label">Course Price:</label>
-              <input type="number" class="form-control" id="course-price">
+              <input type="number" class="form-control" id="course-price" required>
             </div>
             <div class="form-group">
               <label for="course-duration" class="col-form-label">Course Duration(in hours):</label>
-              <input type="text" class="form-control" id="course-duration">
+              <input type="text" class="form-control" id="course-duration" required>
             </div>
             <div class="form-group">
               <label for="course-banner" class="col-form-label">Course Banner URL:</label>
-              <input type="text" class="form-control" id="course-banner">
+              <input type="text" class="form-control" id="course-banner" required>
             </div>
             <div class="form-group">
               <label for="message-text" class="col-form-label">Description:</label>
-              <textarea class="form-control" id="message-text"></textarea>
+              <textarea class="form-control" id="message-text" required></textarea>
             </div>
-
+            <button type="submit" class="btn btn-sm" >Save changes</button>
           </form>
+          <div class="alert alert-success" role="alert" id="alert2">
+            your course has been edited successfully!
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn " data-dismiss="modal">Close</button>
-          <button type="button" class="btn " onclick="updateallData()">Save changes</button>
         </div>
       </div>
     </div>
@@ -192,35 +181,39 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form id="form3">
             <div class="form-group">
               <label for="teacher-name" class="col-form-label">Username:</label>
-              <input type="text" class="form-control" id="teacher-name">
+              <input type="text" class="form-control" id="teacher-name" required>
             </div>
             <div class="form-group">
               <label for="teacher-mail" class="col-form-label">Email Address:</label>
-              <input type="text" class="form-control" id="teacher-mail">
+              <input type="text" class="form-control" id="teacher-mail" required>
             </div>
             <div class="form-group">
               <label for="teacher-pass" class="col-form-label">Password:</label>
-              <input type="text" class="form-control" id="teacher-pass">
+              <input type="text" class="form-control" id="teacher-pass" required>
             </div>
 
             <div class="form-group">
               <label for="teacher-salary" class="col-form-label">Salary:</label>
               <input type="number" class="form-control" id="teacher-salary" disabled>
             </div>
+            <button type="submit" class="btn btn-sm" >Save changes</button>
           </form>
+          <div class="alert alert-success" role="alert" id="alert3">
+            your changes has been made!
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn " data-dismiss="modal">Close</button>
-          <button type="button" class="btn ">Save changes</button>
         </div>
       </div>
     </div>
   </div>
   <!--Modals END-->
   <p id="courseId" style="display: none;"></p>
+  <p id="teacherId" style="display: none;"></p>
 </div>
 <%- include('partials/footer'); %>
 

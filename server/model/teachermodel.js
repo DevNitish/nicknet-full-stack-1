@@ -45,6 +45,7 @@ teacherSchema.statics.showallTeachers=function (callback) {
         data.teacherName= obj.teacherName;
         data.teacherMail= obj.teacherMail;
         data.teacherPass= obj.teacherPass;
+        data.teacherSalary= obj.teacherSalary;
 				data.save(function(err){
 					if(err)
 						callback(err,null);
