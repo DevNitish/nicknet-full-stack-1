@@ -8,11 +8,12 @@
 }
 
 #logoname{
+    font-weight: bold;
     color: #002856;
 }
 
   footer a{
-    font-weight: bold;
+    font-weight: normal;
     font-size: 19px;
     color: #002856;
 }
