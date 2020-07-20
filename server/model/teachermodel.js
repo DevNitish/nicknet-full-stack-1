@@ -87,15 +87,16 @@ teacherSchema.statics.adminteacherUpdate=function (teacherDetail,callback) {
 
 teacherSchema.statics.deleteTeacher=function (teacherId, callback) {
     console.log('teacherId',teacherId);
-  this.findOneAndDelete(
+    this.findOneAndDelete(
       {_id:teacherId}
-  ,function(err,data){
-      if(err){
-          callback(err,null);
-      }else{
-          callback(null,data);
+     ,function(err,data){
+       if(err){
+     callback(err,null);
+   }else{
+ callback(null,data);
       }
-})
+  })
+            
 }
 
 

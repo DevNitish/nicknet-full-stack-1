@@ -31,8 +31,15 @@
           <img src="<%= course.courseBanner %>" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title"><%= course.courseName %></h5>
-            <a role="button" class="btn btn-block " type="submit" style="color: white;" data-toggle="modal"
+            <div class="row">
+              <div class="col">
+            <a role="button" class="btn btn-sm btn-block " type="submit" style="color: white;" data-toggle="modal"
               data-target="#modal" onclick="setValue('<%= course._id %>','<%= course.courseName %>','<%= course.courseDesc %>','<%= course.courseDuration %>','<%= course.coursePrice %>','<%= course.courseBanner %>')">Edit</a>
+            </div>
+            <div class="col">
+              <a  class="btn btn-sm btn-block "  style="color: white;" onclick="removeCourse('<%= course._id %>')" >Delete Course</a>
+            </div>
+            </div>
           </div>
         </div>
         <% }); %>
@@ -58,7 +65,15 @@
                 </ul>
               </div>
             </div>
+            <div class="row">
+              <div class="col">
             <a  class="btn btn-sm btn-block " data-toggle="modal" data-target="#modal1" style="color: white;" onclick="setteacherId('<%= teacher._id %>','<%= teacher.teacherName %>','<%= teacher.teacherMail %>','<%= teacher.teacherPass %>','<%= teacher.teacherSalary %>')" >Edit info</a>
+            
+          </div>
+          <div class="col">
+            <a  class="btn btn-sm btn-block "  style="color: white;"  onclick="removeTeacher('<%= teacher._id %>')">Delete User</a>
+          </div>
+          </div>
           </div>
         </div>
         <% }); %>
@@ -77,6 +92,7 @@
             <h5 class="mt-0"><%= q.queryUser %></h5>
             <%= q.queryDesc %>
             <p>By <a href="mailto:<%= q.queryuserMail %>"><%= q.queryuserMail %></a></p>
+            <a  class="btn btn-sm  "  style="color: white;" onclick="removeQuery('<%= q._id %>')" >Delete Query</a>
           </div>
         </div>
         <hr>
@@ -207,6 +223,22 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn " data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODALS for success and failure-->
+  <div class="modal" tabindex="-1" role="dialog" id="modal3">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Alert!!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="modaltext">Modal body text goes here.</p>
         </div>
       </div>
     </div>

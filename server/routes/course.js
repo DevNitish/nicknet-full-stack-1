@@ -50,9 +50,9 @@ router.get("/getallcourse",function(req,res){
         }
     })
 });
-router.delete("/deletecourse/:id", urlencodedParser,function(req,res){
-    console.log("-id ",req.params.id)
-    Course.deleteCourse(req.params.id,function(err,result){
+router.post("/deletecourse", urlencodedParser,function(req,res){
+    console.log("-id ",req.body._id)
+    Course.deleteCourse(req.body._id,function(err,result){
         if(err){
             res.status(400).send('Course not found!');
         }else{

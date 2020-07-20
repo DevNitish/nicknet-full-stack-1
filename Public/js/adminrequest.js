@@ -12,6 +12,9 @@ function setValue(id,cName,cDesc,cDuration,cPrice,cImage){
         $('#course-banner').val(cImage);
 }
 
+
+
+
 function setteacherId(id,tName,tMail,tPass,tSalary){
     $("#teacherId").html(id);
     console.log("name ",tName)
@@ -110,7 +113,81 @@ function alertSuccess(){
     }, 2000);
 }
 
+//deletion functions
 
+
+
+
+
+function removeTeacher(id){
+    let obj ={
+        "_id" :id
+    }
+    $.ajax({
+        type:"POST",
+        url:"http://localhost:8080/admin/teacher/deleteTeacher",
+        data: obj,
+        success:function(response){
+            console.log('response',response);
+            successModal();
+        },
+        error: function (){
+            console.log(" not deleted");
+            failureModal();
+        }
+    })
+
+}
+
+function removeCourse(id){
+    let obj ={
+        "_id" :id
+    }
+    $.ajax({
+        type:"POST",
+        url:"http://localhost:8080/admin/course/deletecourse",
+        data: obj,
+        success:function(response){
+            console.log('response',response);
+            successModal();
+        },
+        error: function (){
+            console.log(" not deleted");
+            failureModal();
+        }
+    })
+
+}
+
+
+function removeQuery(id){
+    let obj ={
+        "_id" :id
+    }
+    $.ajax({
+        type:"POST",
+        url:"http://localhost:8080/admin/query/deleteQuery",
+        data: obj,
+        success:function(response){
+            console.log('response',response);
+            successModal();
+        },
+        error: function (){
+            console.log(" not deleted");
+            failureModal();
+        }
+    })
+
+}
+
+function successModal(){
+    $('#modaltext').html("Alright! The changes has been done you can now refresh the page to view them!")
+    $('#modal3').modal('show');
+}
+function failureModal(){
+    $('#modaltext').html("Oops! looks like we just hit a roadblock, try again orcontact the website admin if the problem persosts")
+    $('#modal3').modal('show');
+}
 
 $(document).ready(function(){
     $("#alert3").hide();

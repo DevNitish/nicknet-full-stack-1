@@ -14,8 +14,8 @@ router.get("/viewqueries",function(req,res){
     })
 });
 
-router.delete('/deleteQuery', function(req, res,next) {
-    console.log("here deleteQuery",req.body);
+router.post('/deleteQuery', function(req, res,next) {
+    console.log("here deleteQuery",req.body._id);
   
   Query.deleteQuery(req.body._id, function(err, result) {
     if (result) {
