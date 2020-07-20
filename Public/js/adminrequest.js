@@ -1,15 +1,17 @@
-function setValue(id,cName,cDesc,cDuration,cPrice,cImage){
+function setValue(id,cName,cDesc,cDuration,cPrice,cImage,cTeacher){
         $("#courseId").html(id);
         console.log("course ",cName)
         console.log("cDesc ",cDesc)
         console.log("cDuration ",cDuration)
         console.log("cPrice ",cPrice)
+        console.log("cTeacher", cTeacher)
     
         $('#course-name').val(cName);
         $('#message-text').val(cDesc);
         $('#course-duration').val(cDuration);
         $('#course-price').val(cPrice);
         $('#course-banner').val(cImage);
+        $('#course-teacher').val(cTeacher);
 }
 
 
@@ -223,7 +225,7 @@ $(document).ready(function(){
         var courseDesc = $("#message-text").val();
         var coursePrice = $("#course-price").val();
         var courseBanner = $("#course-banner").val();
-        
+        var courseTeacher = $('#course-teacher').val();
     
      let obj={
                 "_id": id,
@@ -231,7 +233,8 @@ $(document).ready(function(){
                 "courseDuration": courseDuration,
                 "courseDesc": courseDesc,
                 "coursePrice": coursePrice,
-                "courseBanner": courseBanner
+                "courseBanner": courseBanner,
+                "courseTeacher": courseTeacher
                 
                 
             }
