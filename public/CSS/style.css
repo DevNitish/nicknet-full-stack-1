@@ -7,6 +7,7 @@ img.d-block{
     color:white
 }
 #logoname{
+    font-weight: bold;
     color: #002856;
 }
 
@@ -43,7 +44,7 @@ img.poweredpics{
 }
 
 footer a{
-    font-weight: bold;
+    font-weight: normal;
     font-size: 19px;
     color: #002856;
 }
