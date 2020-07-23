@@ -1,7 +1,7 @@
 function saveData(obj){
     $.ajax({
         type:"POST",
-        url:"http://localhost:8080/signup/checkuser",
+        url:"/signup/checkuser",
         data:obj,
         success:function(response){
             console.log('response',response);
@@ -25,7 +25,7 @@ function showError(){
 function saveUser(obj){
     $.ajax({
         type:"POST",
-        url:"http://localhost:8080/signup/saveUser",
+        url:"/signup/saveUser",
         data:obj,
         success:function(response){
             console.log('response',response);

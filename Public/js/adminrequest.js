@@ -35,7 +35,7 @@ function updateallData(obj){
  
         $.ajax({
             type:"POST",
-            url:"http://localhost:8080/admin/course/editcourse",
+            url:"/admin/course/editcourse",
             data:obj,
             success:function(response){
                 console.log('response',response);
@@ -53,7 +53,7 @@ function updateallData(obj){
  
         $.ajax({
             type:"POST",
-            url:"http://localhost:8080/admin/teacher/editteacher",
+            url:"/admin/teacher/editteacher",
             data:obj,
             success:function(response){
                 console.log('response',response);
@@ -89,7 +89,7 @@ function saveData(obj){
  
     $.ajax({
         type:"POST",
-        url:"http://localhost:8080/admin/course/addnewcourse",
+        url:"/admin/course/addnewcourse",
         data:obj,
         success:function(response){
             console.log('response',response);
@@ -127,7 +127,7 @@ function removeTeacher(id){
     }
     $.ajax({
         type:"POST",
-        url:"http://localhost:8080/admin/teacher/deleteTeacher",
+        url:"/admin/teacher/deleteTeacher",
         data: obj,
         success:function(response){
             console.log('response',response);
@@ -147,7 +147,7 @@ function removeCourse(id){
     }
     $.ajax({
         type:"POST",
-        url:"http://localhost:8080/admin/course/deletecourse",
+        url:"/admin/course/deletecourse",
         data: obj,
         success:function(response){
             console.log('response',response);
@@ -168,7 +168,7 @@ function removeQuery(id){
     }
     $.ajax({
         type:"POST",
-        url:"http://localhost:8080/admin/query/deleteQuery",
+        url:"/admin/query/deleteQuery",
         data: obj,
         success:function(response){
             console.log('response',response);

@@ -1,7 +1,7 @@
 function saveData(obj){
     $.ajax({
         type:"POST",
-        url:"http://localhost:8080/contactus/sendquery",
+        url:"/contactus/sendquery",
         data:obj,
         success:function(response){
             console.log('response',response);
