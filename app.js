@@ -57,7 +57,7 @@ passport.use(new Strategy(
     });
   });
   
-
+  app.use(express.static(path.join(__dirname, 'public')))
 //views
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
@@ -122,7 +122,6 @@ app.use("/",mainRoute)
 app.use("/admin",
 require('connect-ensure-login').ensureLoggedIn(),
 adminRoute)
-app.use(express.static(path.join(__dirname, 'public')))
 
 app.use("/admin/admincourse",courseRoute)
 // app.use("/admin/teacher",teacherRoute)
