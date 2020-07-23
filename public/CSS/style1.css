@@ -57,13 +57,7 @@ button:focus {
     outline: none;
 }
 
-input:hover {
-	
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-	border: none;
-}
+
 
 button[type=submit]:hover {
 	
