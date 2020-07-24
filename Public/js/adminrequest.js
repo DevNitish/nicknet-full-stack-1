@@ -1,17 +1,19 @@
-function setValue(id,cName,cDesc,cDuration,cPrice,cImage,cTeacher){
-        $("#courseId").html(id);
-        console.log("course ",cName)
-        console.log("cDesc ",cDesc)
-        console.log("cDuration ",cDuration)
-        console.log("cPrice ",cPrice)
-        console.log("cTeacher", cTeacher)
-    
-        $('#course-name').val(cName);
-        $('#message-text').val(cDesc);
-        $('#course-duration').val(cDuration);
-        $('#course-price').val(cPrice);
-        $('#course-banner').val(cImage);
-        $('#course-teacher').val(cTeacher);
+console.log("adminCourses ",adminCourses)
+function setValue(id){
+    console.log("id ", id)
+    let course = null;
+    adminCourses.filter(o => {
+        if (o._id == id) {
+            course = o
+        }
+    })
+    $("#courseId").html(id);
+    $('#course-name').val(course.courseName);
+    $('#message-text').val(course.courseDesc);
+    $('#course-duration').val(course.courseDuration);
+    $('#course-price').val(course.coursePrice);
+    $('#course-banner').val(course.courseBanner);
+    $('#course-teacher').val(course.courseTeacher);
 }
 
 

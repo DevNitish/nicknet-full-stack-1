@@ -25,7 +25,7 @@
           <a role="button" class="btn btn-sm my-2  align-self-end" type="submit" href="/contactus"
             style="color: white;">Contact Us</a>
           <a role="button" class="btn btn-sm  my-2 " type="submit" data-toggle="modal" data-target="#exampleModal5"
-            onclick="getModel('<%= course.courseName %>','<%= course.courseDesc %>','<%= course.courseDuration %>','<%= course.coursePrice %>','<%= course.courseBanner %>')"
+            onclick="getModel('<%= course._id %>')"
             style="color: white;">Read more</a>
         </div>
       </div>
@@ -59,6 +59,9 @@
   <!--card end-->
 </div>
 <%- include('partials/footer'); %>
-<script src="./js/myscript.js"></script>
+<script type='text/javascript'>
+  var siteCourses =<%-JSON.stringify(data)%>
+</script>
+<script src="./js/course.js"></script>
 </body>
 </html>
