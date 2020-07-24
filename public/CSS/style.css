@@ -3,6 +3,12 @@ img.d-block{
     max-height: 400px;
     
 } 
+.centered-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 #signuplink{
     color:white
 }
@@ -10,7 +16,24 @@ img.d-block{
     font-weight: bold;
     color: #002856;
 }
+.numberCircle {
+    border-radius: 100%;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 8px;
+    align-items: center;
 
+    margin: auto;
+    background: #fff;
+    border: 2px solid #ff540a;
+    color: #ff540a;
+    text-align: center;
+    
+    font: 32px Arial, sans-serif;
+}
+.features{
+    margin: auto;
+}
 #buttonsonly a{
     background-color: #ff540a;
     color: white;
@@ -20,10 +43,13 @@ img.d-block{
     background-color:#e64500    ;
 }
 
-#achievementtext{
+#achievementtextlight{
+    color: #f3f3f3;
+    font-weight: bold;
+}
+#achievementtextdark{
     color: #002856;
     font-weight: bold;
-    font-size: 35px;
 }
 #poweredby{
     color: #002856;
@@ -49,8 +75,9 @@ footer a{
     color: #002856;
 }
 .cjumbotron {
-    background-image: url("https://leverageedu.com/blog/wp-content/uploads/2019/11/Career-after-BSc-Maths.png");
+    background-image: url("https://trello-attachments.s3.amazonaws.com/5ef8322c45306b8a49d85eaf/5f1a969ebd42fc4fc267a396/860c3bfffd89aa79f60095a266473850/stack-section0.jpg");
     background-size: cover;
+
   }
 
 #jumboheading{
@@ -77,11 +104,19 @@ footer a{
 }
 
 
-.btn{
+.btn-success2{
+    background-color: #06c4b0;
+    color: white;
+}
+.btn-success2:hover{
+    background-color: #06c4b0;
+    color: white;
+}
+.btnmain{
     background-color: #ff540a;
     color: white;
 }
-.btn:hover{
+.btnmain:hover{
     background-color:#e64500;
     color:white    ; 
 }
