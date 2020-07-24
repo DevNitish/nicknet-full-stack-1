@@ -1,4 +1,13 @@
 console.log("adminCourses ",adminCourses)
+let teacherToBeDeleteId=null;
+let courseToBeDeleteId=null;
+let queryToBeDeleteId=null;
+let dataToBeDeleteId={
+    id:null,
+    type:null
+};
+
+
 function setValue(id){
     console.log("id ", id)
     let course = null;
@@ -133,14 +142,15 @@ function removeTeacher(id){
         data: obj,
         success:function(response){
             console.log('response',response);
-            successModal();
+            dataToBeDeleteId=null
         },
         error: function (){
+            dataToBeDeleteId=null
             console.log(" not deleted");
             failureModal();
         }
     })
-
+    
 }
 
 function removeCourse(id){
@@ -152,15 +162,16 @@ function removeCourse(id){
         url:"/admin/course/deletecourse",
         data: obj,
         success:function(response){
+            dataToBeDeleteId=null
             console.log('response',response);
-            successModal();
         },
         error: function (){
             console.log(" not deleted");
+            dataToBeDeleteId=null
             failureModal();
         }
     })
-
+    
 }
 
 
@@ -173,20 +184,32 @@ function removeQuery(id){
         url:"/admin/query/deleteQuery",
         data: obj,
         success:function(response){
+            dataToBeDeleteId=null
             console.log('response',response);
-            successModal();
         },
         error: function (){
             console.log(" not deleted");
+            dataToBeDeleteId=null
             failureModal();
         }
     })
 
 }
 
-function successModal(){
-    $('#modaltext').html("Alright! The changes has been done you can now refresh the page to view them!")
+function deleteModal(id,deleteType){
+    dataToBeDeleteId.id=id
+    dataToBeDeleteId.type=deleteType
+    $('#modaltext').html("Do you want to delete?")
     $('#modal3').modal('show');
+}
+function deleteData(){
+    if(dataToBeDeleteId.type=='c'){
+        removeCourse(dataToBeDeleteId.id)
+    }
+    else if(dataToBeDeleteId.type=='q')
+        removeQuery(dataToBeDeleteId.id)
+    else if(dataToBeDeleteId.type=='t')
+        removeTeacher(dataToBeDeleteId.id)
 }
 function failureModal(){
     $('#modaltext').html("Oops! looks like we just hit a roadblock, try again orcontact the website admin if the problem persosts")

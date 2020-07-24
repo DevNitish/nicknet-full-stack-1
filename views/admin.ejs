@@ -37,7 +37,7 @@
               data-target="#modal" onclick="setValue('<%= course._id %>')">Edit</a>
             </div>
             <div class="col">
-              <a  class="btn btn-sm btn-block "  style="color: white;" onclick="removeCourse('<%= course._id %>')" >Delete Course</a>
+              <a  class="btn btn-sm btn-block "  style="color: white;" onclick="deleteModal('<%= course._id %>','c')" >Delete Course</a>
             </div>
             </div>
           </div>
@@ -71,7 +71,7 @@
             
           </div>
           <div class="col">
-            <a  class="btn btn-sm btn-block "  style="color: white;"  onclick="removeTeacher('<%= teacher._id %>')">Delete User</a>
+            <a  class="btn btn-sm btn-block "  style="color: white;"  onclick="deleteModal('<%= teacher._id %>','t')">Delete User</a>
           </div>
           </div>
           </div>
@@ -92,7 +92,7 @@
             <h5 class="mt-0"><%= q.queryUser %></h5>
             <%= q.queryDesc %>
             <p>By <a href="mailto:<%= q.queryuserMail %>"><%= q.queryuserMail %></a></p>
-            <a  class="btn btn-sm  "  style="color: white;" onclick="removeQuery('<%= q._id %>')" >Delete Query</a>
+            <a  class="btn btn-sm  "  style="color: white;" onclick="deleteModal('<%= q._id %>','q')" >Delete Query</a>
           </div>
         </div>
         <hr>
@@ -243,6 +243,9 @@
         </div>
         <div class="modal-body">
           <p id="modaltext">Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn danger" onclick="deleteData()" data-dismiss="modal">Delete</button>
         </div>
       </div>
     </div>
