@@ -1,7 +1,4 @@
 console.log("adminCourses ",adminCourses)
-let teacherToBeDeleteId=null;
-let courseToBeDeleteId=null;
-let queryToBeDeleteId=null;
 let dataToBeDeleteId={
     id:null,
     type:null
@@ -210,6 +207,8 @@ function deleteData(){
         removeQuery(dataToBeDeleteId.id)
     else if(dataToBeDeleteId.type=='t')
         removeTeacher(dataToBeDeleteId.id)
+
+    window.location.reload()
 }
 function failureModal(){
     $('#modaltext').html("Oops! looks like we just hit a roadblock, try again orcontact the website admin if the problem persosts")

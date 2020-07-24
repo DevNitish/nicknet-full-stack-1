@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const querySchema = new Schema({
     queryUser: String,
     queryuserMail: String,
-    queryDesc: String
+    queryDesc: String,
+    mobileNumber: String
 })
 
 
@@ -23,7 +24,8 @@ querySchema.statics.sendQuery=function (queryInfo,callback) {
     var newqueryObj ={
         queryUser: queryInfo.queryUser,
         queryuserMail: queryInfo.queryuserMail,
-        queryDesc: queryInfo.queryDesc
+        queryDesc: queryInfo.queryDesc,
+        mobileNumber: queryInfo.mobileNumber
     };
     console.log("newqueryObj: ",newqueryObj);
     this.create(newqueryObj,function(err,data){

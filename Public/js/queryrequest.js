@@ -20,6 +20,7 @@ function alertSuccess(){
     $("#queryUser").val("");
    $("#queryuserMail").val("");
    $("#queryDesc").val(""); 
+   $("#queryMobile").val(""); 
     setTimeout(function(){
         $("#alert1").hide();
     }, 2000);
@@ -35,11 +36,12 @@ $(document).ready(function(){
         var queryUser = $("#queryUser").val();
         var queryuserMail = $("#queryuserMail").val();
         var queryDesc = $("#queryDesc").val();     
+        var queryMobile = $("#queryMobile").val();     
         let obj={
             "queryUser" : queryUser,
             "queryuserMail": queryuserMail,
-            "queryDesc": queryDesc
-            
+            "queryDesc": queryDesc,
+            "mobileNumber": queryMobile           
         }
         saveData(obj) ;
     });

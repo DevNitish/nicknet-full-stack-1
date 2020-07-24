@@ -91,6 +91,7 @@
           <div class="media-body">
             <h5 class="mt-0"><%= q.queryUser %></h5>
             <%= q.queryDesc %>
+            <p>Mobile : <%= q.mobileNumber %></p>
             <p>By <a href="mailto:<%= q.queryuserMail %>"><%= q.queryuserMail %></a></p>
             <a  class="btn btn-sm  "  style="color: white;" onclick="deleteModal('<%= q._id %>','q')" >Delete Query</a>
           </div>
