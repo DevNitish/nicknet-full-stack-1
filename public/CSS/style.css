@@ -16,6 +16,13 @@ img.d-block{
     font-weight: bold;
     color: #002856;
 }
+#logoname-foot{
+    font-weight: bold;
+    color: #f3f3f3;
+}
+.footer-text{
+    color: #f3f3f3;
+}
 .numberCircle {
     border-radius: 100%;
     width: 3.5rem;
@@ -96,13 +103,13 @@ footer a{
     margin: 0.5rem;
     height:auto;
 }
-.newcourses h5{
-    font-size: 15px;
-}
-.newcourses p{
-    font-size: 15px;
-}
 
+.newcourses p{
+    font-size: 1rem;
+}
+.callbutton{
+    color: #ff540a;;
+}
 
 .btn-success2{
     background-color: #06c4b0;
@@ -145,11 +152,19 @@ img.modal-img{
     bottom: 0;
     margin: 0 auto;
 }
-
+ .carouselpara{
+    font-size: 2rem;
+  }
+ .carouselpara1{
+    font-size: 2rem;
+  }
 
 @media only screen and (max-width: 768px){
-    #carouselheading{
-       font-size: 8px;
+    .carouselpara1{
+       font-size: 0.7rem;
+     }
+    .carouselpara{
+       font-size: 0.8rem;
      }
    .newcourses{
         width: 100%;

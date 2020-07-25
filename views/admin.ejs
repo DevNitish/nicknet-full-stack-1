@@ -1,7 +1,7 @@
 <%- include('partials/nav-admin'); %>
 <div class="container">
   <!--JUMBOTRON-->
-  <div class="jumbotron jumbotron-fluid rounded my-3 text-white">
+  <div class="jumbotron jumbotron-fluid rounded my-3 ">
     <div class="container">
       <h1 class="display-4 mx-3" id="jumboheading">Welcome User</h1>
       <p class="lead mx-3">Make sure you double check what you change or add here!</p>
@@ -33,11 +33,11 @@
             <h5 class="card-title"><%= course.courseName %></h5>
             <div class="row">
               <div class="col">
-            <a role="button" class="btn btn-sm btn-block " type="submit" style="color: white;" data-toggle="modal"
+            <a role="button" class="btn btn-sm btn-block btn-primary" type="submit" style="color: white;" data-toggle="modal"
               data-target="#modal" onclick="setValue('<%= course._id %>')">Edit</a>
             </div>
             <div class="col">
-              <a  class="btn btn-sm btn-block "  style="color: white;" onclick="deleteModal('<%= course._id %>','c')" >Delete Course</a>
+              <a  class="btn btn-sm btn-block btn-danger"  style="color: white;" onclick="deleteModal('<%= course._id %>','c')" >Delete Course</a>
             </div>
             </div>
           </div>
@@ -67,11 +67,11 @@
             </div>
             <div class="row">
               <div class="col">
-            <a  class="btn btn-sm btn-block " data-toggle="modal" data-target="#modal1" style="color: white;" onclick="setteacherId('<%= teacher._id %>','<%= teacher.teacherName %>','<%= teacher.teacherMail %>','<%= teacher.teacherPass %>','<%= teacher.teacherSalary %>')" >Edit info</a>
+            <a  class="btn btn-sm btn-block btn-primary" data-toggle="modal" data-target="#modal1" style="color: white;" onclick="setteacherId('<%= teacher._id %>','<%= teacher.teacherName %>','<%= teacher.teacherMail %>','<%= teacher.teacherPass %>','<%= teacher.teacherSalary %>')" >Edit info</a>
             
           </div>
           <div class="col">
-            <a  class="btn btn-sm btn-block "  style="color: white;"  onclick="deleteModal('<%= teacher._id %>','t')">Delete User</a>
+            <a  class="btn btn-sm btn-block btn-danger"  style="color: white;"  onclick="deleteModal('<%= teacher._id %>','t')">Delete User</a>
           </div>
           </div>
           </div>
@@ -93,7 +93,7 @@
             <%= q.queryDesc %>
             <p>Mobile : <%= q.mobileNumber %></p>
             <p>By <a href="mailto:<%= q.queryuserMail %>"><%= q.queryuserMail %></a></p>
-            <a  class="btn btn-sm  "  style="color: white;" onclick="deleteModal('<%= q._id %>','q')" >Delete Query</a>
+            <a  class="btn btn-sm btn-danger "  style="color: white;" onclick="deleteModal('<%= q._id %>','q')" >Delete Query</a>
           </div>
         </div>
         <hr>
